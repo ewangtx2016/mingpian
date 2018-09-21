@@ -1,0 +1,2 @@
+<import src="/components/menu.vue.wxml" />
+<import src="/components/message.vue.wxml" />

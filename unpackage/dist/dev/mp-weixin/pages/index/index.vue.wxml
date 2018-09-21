@@ -1,0 +1,26 @@
+<template name="32f91cb0">
+  <view class="_view data-v-6939f4a6 ming_list">
+    <block wx:key="index" key="{{index}}" wx:for="{{listdata}}" wx:for-index="index" wx:for-item="item">
+      <view class="_view data-v-6939f4a6 msag">2018-08-30 10:43 来自扫码</view>
+      <view bindtap="handleProxy" data-eventid="{{'0-'+index}}" data-comkey="{{$k}}" class="_view data-v-6939f4a6 {{index % 2 == 0 ? 'li' : 'li active'}}">
+        <view class="_view data-v-6939f4a6 li_left">
+          <view class="_view data-v-6939f4a6 title txtover">{{item.companyName}}</view>
+          <view class="_view data-v-6939f4a6 name txtover"> {{item.cardName}} </view>
+          <view class="_view data-v-6939f4a6 tag txtover"> {{item.title}} </view>
+          <view class="_view data-v-6939f4a6 message">
+            <view class="_view data-v-6939f4a6 one"> {{item.cardTel}} </view>
+            <view class="_view data-v-6939f4a6 one" wx:if="{{item.cardEmail}}"> {{item.cardEmail}} </view>
+          </view>
+          <view class="_view data-v-6939f4a6 nub"> No.{{index + 1}} </view>
+        </view>
+        <view class="_view data-v-6939f4a6 img">
+          <image src="../../static/images/touxiang.jpg" mode="aspectFit" class="_image data-v-6939f4a6"></image>
+        </view>
+        <view class="_view data-v-6939f4a6 but">
+          <button type="default" size="mini" class="_button data-v-6939f4a6">置顶</button>
+          <button type="default" size="mini" class="_button data-v-6939f4a6">屏蔽</button>
+        </view>
+      </view>
+    </block>
+  </view>
+</template>

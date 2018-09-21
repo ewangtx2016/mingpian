@@ -1,0 +1,129 @@
+<import src="/components/menu.vue.wxml" />
+<import src="/components/message.vue.wxml" />
+<template name="915eb5b8">
+  <view class="_view data-v-217f3ac0 page">
+    <view class="_view data-v-217f3ac0 icon_back">
+      <image src="../../static/images/ming_icon.png" mode="aspectFit" class="_image data-v-217f3ac0"></image>
+    </view>
+    <view class="_view data-v-217f3ac0 top">
+      <image src="../../static/images/touxiang.jpg" mode="aspectFit" class="_image data-v-217f3ac0"></image>
+      <view class="_view data-v-217f3ac0 mes">
+        <view class="_view data-v-217f3ac0 logo_box">
+          <image class="_image data-v-217f3ac0 logo" src="../../static/images/logo.png" mode="aspectFit"></image>
+        </view>
+        <view class="_view data-v-217f3ac0 mes_le">
+          <view class="_view data-v-217f3ac0 name">
+            <text class="_text data-v-217f3ac0 txtover">{{mes.cardName}}</text>— 首席服务官 </view>
+          <view class="_view data-v-217f3ac0 tel"> {{mes.cardTel}} </view>
+        </view>
+      </view>
+    </view>
+    <view class="_view data-v-217f3ac0 mesage">
+      <view class="_view data-v-217f3ac0 link">
+        <view bindtap="handleProxy" hidden="{{!(isdown)}}" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_view data-v-217f3ac0"> 展开全部名片信息
+          <image src="../../static/images/jt_down.png" mode="aspectFit" class="_image data-v-217f3ac0"></image>
+        </view>
+        <view bindtap="handleProxy" hidden="{{!(!isdown)}}" data-eventid="{{'1'}}" data-comkey="{{$k}}" class="_view data-v-217f3ac0"> 收起全部名片信息
+          <image src="../../static/images/jt_up.png" mode="aspectFit" class="_image data-v-217f3ac0"></image>
+        </view>
+      </view>
+      <view class="_view data-v-217f3ac0 box" hidden="{{!(!isdown)}}">
+        <view class="_view data-v-217f3ac0 li">
+          <text class="_text data-v-217f3ac0">电话</text>
+          <view class="_view data-v-217f3ac0 txt">{{mes.mobile}}</view>
+          <view class="_view data-v-217f3ac0 but">
+            <button type="primary" size="mini" bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}" class="_button data-v-217f3ac0">拨打</button>
+          </view>
+        </view>
+        <view class="_view data-v-217f3ac0 li">
+          <text class="_text data-v-217f3ac0">座机</text>
+          <view class="_view data-v-217f3ac0 txt">{{mes.tel}}</view>
+          <view class="_view data-v-217f3ac0 but">
+            <button type="primary" size="mini" bindtap="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}" class="_button data-v-217f3ac0">拨打</button>
+          </view>
+        </view>
+        <view class="_view data-v-217f3ac0 li">
+          <text class="_text data-v-217f3ac0">微信</text>
+          <view class="_view data-v-217f3ac0 txt">{{mes.weichart}}</view>
+          <view class="_view data-v-217f3ac0 but">
+            <button type="primary" size="mini" bindtap="handleProxy" data-eventid="{{'4'}}" data-comkey="{{$k}}" class="_button data-v-217f3ac0">复制</button>
+          </view>
+        </view>
+        <view class="_view data-v-217f3ac0 li">
+          <text class="_text data-v-217f3ac0">邮箱</text>
+          <view class="_view data-v-217f3ac0 txt">{{mes.email}}</view>
+          <view class="_view data-v-217f3ac0 but">
+            <button type="primary" size="mini" bindtap="handleProxy" data-eventid="{{'5'}}" data-comkey="{{$k}}" class="_button data-v-217f3ac0">复制</button>
+          </view>
+        </view>
+        <view class="_view data-v-217f3ac0 li">
+          <text class="_text data-v-217f3ac0">公司</text>
+          <view class="_view data-v-217f3ac0 txt">{{mes.company}}</view>
+          <view class="_view data-v-217f3ac0 but">
+            <button type="primary" size="mini" bindtap="handleProxy" data-eventid="{{'6'}}" data-comkey="{{$k}}" class="_button data-v-217f3ac0">复制</button>
+          </view>
+        </view>
+        <view class="_view data-v-217f3ac0 li">
+          <text class="_text data-v-217f3ac0">地址</text>
+          <view class="_view data-v-217f3ac0 txt">{{mes.addr}}</view>
+          <view class="_view data-v-217f3ac0 but">
+            <button type="primary" size="mini" bindtap="handleProxy" data-eventid="{{'7'}}" data-comkey="{{$k}}" class="_button data-v-217f3ac0">复制</button>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="_view data-v-217f3ac0 fenxiang">
+      <view class="_view data-v-217f3ac0 but">
+        <button class="_button data-v-217f3ac0 fx" open-type="share" type="primary">分享名片</button>
+        <button class="_button data-v-217f3ac0 txl" type="default" bindtap="handleProxy" data-eventid="{{'8'}}" data-comkey="{{$k}}">存入手机通讯录</button>
+      </view>
+      <view class="_view data-v-217f3ac0 his">
+        <view class="_view data-v-217f3ac0 yuan">
+          <view class="_view data-v-217f3ac0 tou">
+            <image src="../../static/images/touxiang.jpg" mode="aspectFit" class="_image data-v-217f3ac0"></image>
+            <image src="../../static/images/touxiang.jpg" mode="aspectFit" class="_image data-v-217f3ac0"></image>
+            <image src="../../static/images/touxiang.jpg" mode="aspectFit" class="_image data-v-217f3ac0"></image>
+            <image src="../../static/images/touxiang.jpg" mode="aspectFit" class="_image data-v-217f3ac0"></image>
+            <image src="../../static/images/touxiang.jpg" mode="aspectFit" class="_image data-v-217f3ac0"></image> ... </view>
+          <view class="_view data-v-217f3ac0 nub"> 22838人浏览 </view>
+        </view>
+        <view bindtap="handleProxy" data-eventid="{{'9'}}" data-comkey="{{$k}}" class="_view data-v-217f3ac0 {{iszan ? 'hover zan' : 'zan'}}">
+          <view class="_view data-v-217f3ac0 zan_icon"></view>
+          <view class="_view data-v-217f3ac0 txt"> 靠谱
+            <text class="_text data-v-217f3ac0">1.1K</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="_view data-v-217f3ac0 listbox">
+      <view class="_view data-v-217f3ac0 list_title">
+        <text class="_text data-v-217f3ac0 name">我推荐的产品</text>
+        <navigator class="_navigator data-v-217f3ac0 link" to="/">全部商品
+          <image class="_image data-v-217f3ac0 right" src="../../static/images/right.png" mode="aspectFit"></image>
+        </navigator>
+      </view>
+      <view class="_view data-v-217f3ac0 tuij">
+        <view class="_view data-v-217f3ac0 one">
+          <view class="_view data-v-217f3ac0 img">
+            <image src="../../static/images/touxiang.jpg" mode="aspectFit" class="_image data-v-217f3ac0"></image>
+          </view>
+          <view class="_view data-v-217f3ac0 txt">
+            <view class="_view data-v-217f3ac0 title"> 推荐产品，这是一个推荐的产品名称，何止何来，如果规划，怎么如何，你不知道！ </view>
+            <view class="_view data-v-217f3ac0 jia"> ￥10000 </view>
+          </view>
+        </view>
+        <view class="_view data-v-217f3ac0 one">
+          <view class="_view data-v-217f3ac0 img">
+            <image src="../../static/images/touxiang.jpg" mode="aspectFit" class="_image data-v-217f3ac0"></image>
+          </view>
+          <view class="_view data-v-217f3ac0 txt">
+            <view class="_view data-v-217f3ac0 title"> 推荐产品，这是一个推荐的产品名称，何止何来，如果规划，怎么如何，你不知道！ </view>
+            <view class="_view data-v-217f3ac0 jia"> ￥10000 </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <template data="{{...$root[$kk+'0'], $root}}" is="64470d36"></template>
+    <template data="{{...$root[$kk+'1'], $root}}" is="5e99e11e"></template>
+  </view>
+</template>

@@ -1,0 +1,18 @@
+<template name="5e99e11e">
+  <view class="_view data-v-626296a2 mess_list">
+    <view class="_view data-v-626296a2 message" animation="{{animation}}">
+      <image class="_image data-v-626296a2 img" src="/static/images/touxiang.jpg" mode="aspectFit"></image>
+      <view class="_view data-v-626296a2 txt">
+        <view class="_view data-v-626296a2 title"> {{mesage.title}} </view>
+        <view class="_view data-v-626296a2 mesg"> {{mesage.mesg}} </view>
+      </view>
+    </view>
+    <view class="_view data-v-626296a2 message" animation="{{animation}}">
+      <image class="_image data-v-626296a2 img" src="/static/images/touxiang.jpg" mode="aspectFit"></image>
+      <view class="_view data-v-626296a2 txt">
+        <view class="_view data-v-626296a2 title"> {{mesage.title}} </view>
+        <view class="_view data-v-626296a2 mesg"> {{mesage.mesg}} </view>
+      </view>
+    </view>
+  </view>
+</template>
