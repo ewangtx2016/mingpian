@@ -3,7 +3,8 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "名片列表"
+				"navigationBarTitleText": "名片列表",
+				"enablePullDownRefresh": true
 			}
 		},
 		{
@@ -19,6 +20,7 @@
 				"navigationBarTitleText": "客服系统"
 			}
 		},
+		// 用户授权页面
 		{
 			"path": "pages/getinfo/getinfo",
 			"style": {
@@ -29,15 +31,51 @@
 		{
 			"path": "pages/shop/shop",
 			"style": {
-				"navigationBarTitleText": "获取用户授权"
+				"navigationBarTitleText": "商城"
+			}
+		},
+		// radar 雷达页面 - 时间
+		{
+			"path": "pages/radar/radar",
+			"style": {
+				"navigationBarTitleText": "雷达-时间"
+			}
+		},
+		// radar 雷达页面 - 人
+		{
+			"path": "pages/radar_p/radar_p",
+			"style": {
+				"navigationBarTitleText": "雷达-人"
+			}
+		},
+		// radar 雷达页面 - 行为
+		{
+			"path": "pages/radar_x/radar_x",
+			"style": {
+				"navigationBarTitleText": "雷达-行为"
+			}
+		},
+		// radar 雷达页面 - 行为-详情
+		{
+			"path": "pages/radar_x_page/radar_x_page",
+			"style": {
+				"navigationBarTitleText": "雷达-行为-详情"
+			}
+		},
+		// 消息
+		{
+			"path": "pages/message/message",
+			"style": {
+				"navigationBarTitleText": "消息"
 			}
 		}
 	],
-	"globalStyle": {
+	"globalStyle": { 
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
 		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8"
+		"backgroundColor": "#F8F8F8",
+		"onReachBottomDistance": 0
 	},
 	"condition": { //模式配置，仅开发期间生效
 		"current": 1, //当前激活的模式（list 的索引项）
@@ -54,12 +92,28 @@
 				"path": "pages/page/page"
 			},
 			{
-				"name": "getuser",
+				"name": "getinfo",
 				"path": "pages/getinfo/getinfo"
 			},
 			{
 				"name": "shop",
 				"path": "pages/shop/shop"
+			},
+			{
+				"name": "radar",
+				"path": "pages/radar/radar"
+			},
+			{
+				"name": "radar_p",
+				"path": "pages/radar_p/radar_p"
+			},
+			{
+				"name": "radar_x",
+				"path": "pages/radar_x/radar_x"
+			},
+			{
+				"name": "message",
+				"path": "pages/message/message"
 			}
 		]
 	}

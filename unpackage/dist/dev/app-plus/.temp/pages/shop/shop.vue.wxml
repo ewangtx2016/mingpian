@@ -1,0 +1,5 @@
+<template name="d198c4f8">
+  <view class="_view data-v-61b94a00">
+    <web-view src="{{websrc}}" bindload="xiaoqiang" class="_web-view data-v-61b94a00"></web-view>
+  </view>
+</template>

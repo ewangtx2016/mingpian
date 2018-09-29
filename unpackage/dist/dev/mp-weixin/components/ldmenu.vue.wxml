@@ -1,0 +1,18 @@
+<template name="124de946">
+  <view class="_view data-v-cf194be8 sho_menu">
+    <view class="_view data-v-cf194be8 footer_menu">
+      <navigator url="/pages/radar/radar" class="_navigator data-v-cf194be8">
+        <view class="_view data-v-cf194be8 mp">
+          <image wx:if="{{pagename == 'radar' || pagename == 'radar_p' || pagename == 'radar_x' || pagename == 'radar_x_page'}}" src="/static/images/icon_ld_hover.png" mode="aspectFit" class="_image data-v-cf194be8"></image>
+          <image wx:else src="/static/images/icon_ld.png" mode="aspectFit" class="_image data-v-cf194be8"></image>
+        </view>
+      </navigator>
+      <navigator url="/pages/message/message" class="_navigator data-v-cf194be8">
+        <view class="_view data-v-cf194be8 shop">
+          <image wx:if="{{pagename == 'message' || pagename == 'messagepage'}}" src="/static/images/icon_xx_hover.png" mode="aspectFit" class="_image data-v-cf194be8"></image>
+          <image wx:else src="/static/images/icon_xx.png" mode="aspectFit" class="_image data-v-cf194be8"></image>
+        </view>
+      </navigator>
+    </view>
+  </view>
+</template>

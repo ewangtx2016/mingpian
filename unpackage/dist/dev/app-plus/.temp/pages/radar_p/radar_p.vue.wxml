@@ -1,0 +1,57 @@
+<import src="/components/radar_menu.vue.wxml" />
+<import src="/components/date.vue.wxml" />
+<import src="/components/ldmenu.vue.wxml" />
+<template name="59029e7a">
+  <view class="_view data-v-a7662aa0 radar_father">
+    <view class="_view data-v-a7662aa0 radar">
+      <template data="{{...$root[$kk+'0'], $root}}" is="7ebcb3fe"></template>
+    </view>
+    <view class="_view data-v-a7662aa0 check_time">
+      <text class="_text data-v-a7662aa0"> 7天内被查看的行为统计 </text>
+      <view class="_view data-v-a7662aa0 button" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">
+        <image src="../../static/images/icon_rili.png" mode="aspectFit" class="_image data-v-a7662aa0"></image>
+      </view>
+    </view>
+    <template binddateclick="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'1'], $root}}" is="5cb49434"></template>
+    <view class="_view data-v-a7662aa0 radar_list">
+      <view class="_view data-v-a7662aa0 radar_one" wx:key="index" key="{{index}}" wx:for="{{listdata}}" wx:for-index="index" wx:for-item="item">
+        <view class="_view data-v-a7662aa0 list">
+          <view class="_view data-v-a7662aa0 one">
+            <image src="{{item.userImgUrl}}" mode="aspectFit" class="_image data-v-a7662aa0"></image>
+            <view class="_view data-v-a7662aa0 meg"> {{item.userName}} </view>
+            <view class="_view data-v-a7662aa0 date">
+              <view bindtap="handleProxy" data-eventid="{{'2-'+index}}" data-comkey="{{$k}}" class="_view data-v-a7662aa0 {{item.bool ? 'jia hover' : 'jia'}}"></view>
+            </view>
+          </view>
+        </view>
+        <view class="_view data-v-a7662aa0 message_list {{item.bool ? 'hover' : ''}}">
+          <view class="_view data-v-a7662aa0 li" wx:if="{{onepage.visit_business_card}}">
+            <text class="_text data-v-a7662aa0">查看名片 ：</text> {{onepage.visit_business_card}}次 </view>
+          <view class="_view data-v-a7662aa0 li" wx:if="{{onepage.forward_business_card}}">
+            <text class="_text data-v-a7662aa0">转发名片 ：</text> {{onepage.forward_business_card}}次 </view>
+          <view class="_view data-v-a7662aa0 li" wx:if="{{onepage.save_business_card}}">
+            <text class="_text data-v-a7662aa0">保存名片 ：</text> {{onepage.save_business_card}}次 </view>
+          <view class="_view data-v-a7662aa0 li" wx:if="{{onepage.save_to_address_book}}">
+            <text class="_text data-v-a7662aa0">保存通讯录 ：</text> {{onepage.save_to_address_book}}次 </view>
+          <view class="_view data-v-a7662aa0 li" wx:if="{{onepage.click_like_business_card}}">
+            <text class="_text data-v-a7662aa0">点赞 ：</text> {{onepage.click_like_business_card}}次 </view>
+          <view class="_view data-v-a7662aa0 li" wx:if="{{onepage.visit_shopping_mall}}">
+            <text class="_text data-v-a7662aa0">查看商城 ：</text> {{onepage.visit_shopping_mall}}次 </view>
+          <view class="_view data-v-a7662aa0 li" wx:if="{{onepage.visit_product}}">
+            <text class="_text data-v-a7662aa0">查看商品 ：</text> {{onepage.visit_product}}次 </view>
+          <view class="_view data-v-a7662aa0 li" wx:if="{{onepage.consult}}">
+            <text class="_text data-v-a7662aa0">咨询 ：</text> {{onepage.consult}}次 </view>
+          <view class="_view data-v-a7662aa0 li" wx:if="{{onepage.dial}}">
+            <text class="_text data-v-a7662aa0">拨打电话 ：</text> {{onepage.dial}}次 </view>
+          <view class="_view data-v-a7662aa0 li" wx:if="{{onepage.buying}}">
+            <text class="_text data-v-a7662aa0">正在购买 ：</text> {{onepage.buying}}次 </view>
+          <view class="_view data-v-a7662aa0 li" wx:if="{{onepage.unpaid}}">
+            <text class="_text data-v-a7662aa0">待支付 ：</text> {{onepage.unpaid}}次 </view>
+          <view class="_view data-v-a7662aa0 li" wx:if="{{onepage.pay_success}}">
+            <text class="_text data-v-a7662aa0">购买成功 ：</text> {{onepage.pay_success}}次 </view>
+        </view>
+      </view>
+    </view>
+    <template data="{{...$root[$kk+'2'], $root}}" is="124de946"></template>
+  </view>
+</template>

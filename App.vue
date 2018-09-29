@@ -1,10 +1,17 @@
 <script>
+// 	const AV = require('./static/js/av-weapp-min.js')
+// 	const { Realtime, TextMessage } = require('./static/js/realtime.weapp.min.js')
+	
 	import { mapState, mapGetters, mapMutations } from 'vuex'
+	const PUBLIC = require('./static/js/public.js')
+	
+
+
 	
 	export default {
 		data() {
 			return {
-				xiaoqiang: '123123'
+				
 			}
 		},
 		computed: {
@@ -18,48 +25,8 @@
 			])
 		},
 		methods:{
-			soctket(){
-				let _this = this
-				let L_CODE = uni.getStorageSync('CODE') ?  uni.getStorageSync('CODE') : ''
-				console.log('L_CODE', L_CODE)
-				wx.connectSocket({
-					url: `${_this.WSS_URL}/websocket`,
-					header: {
-						'cookie': `ticket=${L_CODE.ticket}` //c97a1774ff734db5925c0b4db5502c59
-					},
-					success:function(){
-						_this.sockteSuccess()
-					}
-				})
-			},
-			sockteSuccess(){
-				wx.onSocketOpen((res)=>{
-					console.log('链接成功')
-				})
+			initSocket(){
 				
-				wx.onSocketMessage((res)=>{
-					console.log('收到服务器内容：' + res.data)
-				})
-				
-				wx.onSocketError((res)=>{ 
-					console.log('WebSocket连接打开失败')
-					
-					this.timeDing()
-				})
-				
-				wx.onSocketClose((res)=> {
-					console.log('WebSocket 已关闭！')
-					
-					this.timeDing()
-				})
-			},
-			timeDing(){
-				this.sockTime = setTimeout(function(){
-					this.soctket()
-				}.bind(this), 5000)
-			},
-			timeSocket(){
-				// this.timesocket = 
 			},
 			getsetting(){
 					let _this = this
@@ -77,20 +44,13 @@
 			}
 		},
 		onLaunch: function (Event) {
-			
+
 		},
 		onShow: function (Event) {
-			
-			let one = 'pages/index/'
-			let pathname = Event.path.substring(one.length,Event.path.length)
-			console.log(pathname)
-			
-			
-			this.soctket()
 			this.getsetting()
 		},
 		onHide: function () {
-		},
+		}
 		
 	}
 </script>

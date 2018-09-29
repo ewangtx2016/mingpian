@@ -10,7 +10,7 @@
 	export default {
 		data(){
 			return {
-				websrc: 'http://aidou.51play.com/shop/shop.shtml'
+				websrc: 'http://aidou.51play.com/shop/shop.shtml' 
 			}
 		},
 		computed: {
@@ -25,12 +25,15 @@
 			this.setUrl()
 		},
 		methods: {
+			// VUEX - function
+			...mapMutations([
+				'UPDATA_USER_RADAR'
+			]),
 			xiaoqiang(){
 				console.log('hahahahahhahahaha')
 			},
 			setUrl(){
-				let storage = JSON.parse(wx.getStorageSync('CODE'))
-				console.log(storage)
+				let storage = wx.getStorageSync('CODE')
 				let tt_token = storage.tt_token
 				let ticket = storage.ticket
 				this.websrc = `${this.websrc}?tt_token=${tt_token}&ticket=${ticket}`

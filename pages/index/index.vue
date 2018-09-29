@@ -4,8 +4,8 @@
 			<button>点击震动</button>
 		</navigator> -->
 		<block v-for="(item, index) in listdata" :key="index">
-			<view class="msag">2018-08-30 10:43 来自扫码</view>
-			<view :class="index%2 == 0 ? 'li' : 'li active'" @tap="goto(`${item.id}`)">
+			<view class="msag">{{item.createTime}}</view>
+			<view :class="item.radarStatus == 1 ? 'li' : 'li active'" @tap="goto(`${item.id}`, item.radarStatus)">
 				<view class="li_left">
 					<view class="title txtover">{{item.companyName}}</view>
 					<view class="name txtover">
@@ -28,7 +28,7 @@
 				</view>
 				<!-- 照片 -->
 				<view class="img">
-					<image  src="../../static/images/touxiang.jpg" mode="aspectFit"></image>
+					<image  :src="item.cardBgImg" mode="aspectFit"></image>
 				</view>
 				<!-- 操作 -->
 				<view class="but">
@@ -37,11 +37,23 @@
 				</view>
 			</view>
 		</block>
+		
+		<!-- 雷达按钮 -->
+		<navigator class="icon_leida" url="/pages/radar/radar">雷达</navigator>
+		
+		<!-- 消息体 -->
+		<txtmessage></txtmessage>
+		
 	</view>
 </template>
 
 <script>
 	import { mapState, mapGetters, mapMutations } from 'vuex'
+	import txtmessage from '../../components/message.vue'
+
+	
+	// 导入公共方法
+	const PUBLIC = require('../../static/js/public.js')
 
 	export default {
 		data(){
@@ -54,43 +66,84 @@
 				'GET_CODE',
 			]),
 			...mapState([
-				'HTTPS_URL'
+				'HTTPS_URL',
+				'WSS_URL'
 			])
 		},
-		mounted(){
+		components: {
+			'txtmessage': txtmessage
+		},
+		onLoad(query){
 			this.getList()
 		},
+		// 下拉刷新
+		onPullDownRefresh(){
+			let _this = this
+			// 下拉刷新
+			_this.getList().then(()=>{
+				setTimeout(()=>{
+					wx.stopPullDownRefresh()
+				}, 1000)
+			})
+		},
+		// 上拉加载
+		onReachBottom(){
+			console.log('滚动加载')
+		},
 		methods: {
+			...mapMutations([
+				'FILE_TIME'
+			]),
 			zhendong(){
 				wx.vibrateShort()
 			},
-			goto(id){
-				uni.navigateTo({
-					url: `../page/page?id=${id}`,
-				})
+			goto(id, status){
+				// 判断是否失效的名片
+				if(status == 1){
+					uni.navigateTo({
+						url: `/pages/page/page?id=${id}`, 
+					})
+				}else{
+					return
+				}
 			},
+			// 获取名片列表 GET
 			getList(){
 				let _this = this
-				let storage = uni.getStorageSync('CODE')
-				uni.request({
-					url: `${_this.HTTPS_URL}/cardPocket/list`,
-					method:'GET',
-					header: {
-						'Cookie': `ticket=${storage.ticket}`
-					},
-					success:function(res){
-						if(res.data.status === 1){
-							_this.listdata = res.data.data.cards
-						}
+				return PUBLIC.GET({
+					url: `${_this.HTTPS_URL}/cardPocket/list`
+				}).then((data)=> {
+					let newlist = data.cards
+					for(let item of newlist){
+						item.crTime = PUBLIC.RETURN_NEWTIME_X(item.crTime)
+						item.createTime = PUBLIC.RETURN_NEWTIME_X(item.createTime)
 					}
+					_this.listdata = data.cards
 				})
 			}
-		},
+		}
 	}
 </script>
 
 <style lang="less">
 	
+	
+	.icon_leida{
+		position: fixed;
+		right: 20px;
+		bottom: 200px;
+		width: 100px;
+		height: 100px;
+		text-align: center;
+		border-radius: 100px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-size: 30px;
+		border: 1px solid #4a77b0;
+		color: #4a77b0;
+		
+	}
 	
 	 /*名片列表 */
 	 .ming_list{

@@ -1,0 +1,75 @@
+<import src="/components/radar_menu.vue.wxml" />
+<import src="/components/ldmenu.vue.wxml" />
+<template name="301a8618">
+  <view class="_view data-v-665b5e0e radar_father">
+    <view class="_view data-v-665b5e0e radar">
+      <template data="{{...$root[$kk+'0'], $root}}" is="7ebcb3fe"></template>
+    </view>
+    <view class="_view data-v-665b5e0e radar_list">
+      <view class="_view data-v-665b5e0e radar_one" wx:key="index" key="{{index}}" wx:for="{{datalist}}" wx:for-index="index" wx:for-item="item">
+        <view class="_view data-v-665b5e0e time"> {{item.crTime}} </view>
+        <view class="_view data-v-665b5e0e list">
+          <view class="_view data-v-665b5e0e one">
+            <image src="{{item.userImgUrl}}" mode="aspectFit" class="_image data-v-665b5e0e"></image>
+            <view class="_view data-v-665b5e0e meg">
+              <view class="_view data-v-665b5e0e txt"> {{item.userName}}正在
+                <view wx:if="{{item.optionType == 'visit_business_card' }}" class="_view data-v-665b5e0e">
+                  <text class="_text data-v-665b5e0e">查看</text>你的
+                  <text class="_text data-v-665b5e0e">名片</text>
+                </view>
+                <view wx:if="{{item.optionType == 'forward_business_card' }}" class="_view data-v-665b5e0e">
+                  <text class="_text data-v-665b5e0e">转发</text>你的
+                  <text class="_text data-v-665b5e0e">名片</text>
+                </view>
+                <view wx:if="{{item.optionType == 'save_business_card' }}" class="_view data-v-665b5e0e">
+                  <text class="_text data-v-665b5e0e">保存</text>你的
+                  <text class="_text data-v-665b5e0e">名片</text>
+                </view>
+                <view wx:if="{{item.optionType == 'save_to_address_book' }}" class="_view data-v-665b5e0e">
+                  <text class="_text data-v-665b5e0e">保存</text>你的
+                  <text class="_text data-v-665b5e0e">通讯录</text>
+                </view>
+                <view wx:if="{{item.optionType == 'click_like_business_card' }}" class="_view data-v-665b5e0e"> 给你
+                  <text class="_text data-v-665b5e0e">点赞</text>
+                </view>
+                <view wx:if="{{item.optionType == 'visit_shopping_mall' }}" class="_view data-v-665b5e0e">
+                  <text class="_text data-v-665b5e0e">查看</text>你的
+                  <text class="_text data-v-665b5e0e">商城</text>
+                </view>
+                <view wx:if="{{item.optionType == 'visit_product' }}" class="_view data-v-665b5e0e">
+                  <text class="_text data-v-665b5e0e">查看</text>你的
+                  <text class="_text data-v-665b5e0e">商品</text>
+                </view>
+                <view wx:if="{{item.optionType == 'consult' }}" class="_view data-v-665b5e0e">
+                  <text class="_text data-v-665b5e0e">咨询</text>你的
+                  <text class="_text data-v-665b5e0e">问题</text>
+                </view>
+                <view wx:if="{{item.optionType == 'dial' }}" class="_view data-v-665b5e0e">
+                  <text class="_text data-v-665b5e0e">拨打</text>你的
+                  <text class="_text data-v-665b5e0e">电话</text>
+                </view>
+                <view wx:if="{{item.optionType == 'buying' }}" class="_view data-v-665b5e0e">
+                  <text class="_text data-v-665b5e0e">正在购买</text>你的
+                  <text class="_text data-v-665b5e0e">商品</text>
+                </view>
+                <view wx:if="{{item.optionType == 'unpaid' }}" class="_view data-v-665b5e0e">
+                  <text class="_text data-v-665b5e0e">准备支付</text>你的
+                  <text class="_text data-v-665b5e0e">商品</text>
+                </view>
+                <view wx:if="{{item.optionType == 'pay_success' }}" class="_view data-v-665b5e0e">
+                  <text class="_text data-v-665b5e0e">成功购买</text>你的
+                  <text class="_text data-v-665b5e0e">商品</text>
+                </view> 第{{item.optionCnt}}次。 </view>
+              <view class="_view data-v-665b5e0e title" wx:if="{{item.optionCnt == 1}}"> 抓住机会沟通吧 </view>
+              <view class="_view data-v-665b5e0e title" wx:if="{{item.optionCnt == 2}}"> 把握深度交流的机会 </view>
+              <view class="_view data-v-665b5e0e title" wx:if="{{item.optionCnt == 3}}"> 有希望转化的潜在客户 </view>
+              <view class="_view data-v-665b5e0e title" wx:if="{{item.optionCnt == 4}}"> 建议标注为重点客户 </view>
+              <view class="_view data-v-665b5e0e title" wx:if="{{item.optionCnt >= 5}}"> 成交在望 </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <template data="{{...$root[$kk+'1'], $root}}" is="124de946"></template>
+  </view>
+</template>

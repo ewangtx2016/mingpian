@@ -1,0 +1,13 @@
+
+      !(function(){
+        var uniAppViewReadyCallback = function(){
+          setCssToHead([[2,1],".",[1],"radar_father { background: -webkit-linear-gradient(top, #d1d1d1 30%, #fff 70%); background: linear-gradient(to bottom, #d1d1d1 30%, #fff 70%); min-height: 100%; }\n.",[1],"radar_list { padding: ",[0,20],"; }\n.",[1],"radar_list .",[1],"radar_one { margin: ",[0,10]," 0; margin-bottom: ",[0,20],"; }\n.",[1],"radar_list .",[1],"radar_one .",[1],"time { font-size: ",[0,30],"; color: #373737; padding: 0 ",[0,20],"; }\n.",[1],"radar_list .",[1],"radar_one .",[1],"list .",[1],"one { padding: ",[0,20],"; margin: ",[0,10]," 0; background: #fff; border-radius: ",[0,10],"; box-shadow: 0 0 ",[0,10]," rgba(0, 0, 0, 0.1); display: -webkit-box; display: -webkit-flex; display: flex; }\n.",[1],"radar_list .",[1],"radar_one .",[1],"list .",[1],"one \x3e wx-image { width: ",[0,120],"; height: ",[0,120],"; border-radius: ",[0,1000],"; box-shadow: 0 0 ",[0,10]," rgba(0, 0, 0, 0.1); margin-right: ",[0,20],"; }\n.",[1],"radar_list .",[1],"radar_one .",[1],"list .",[1],"one .",[1],"meg { -webkit-box-flex: 1; -webkit-flex: 1; flex: 1; -webkit-box-align: center; -webkit-align-items: center; align-items: center; }\n.",[1],"radar_list .",[1],"radar_one .",[1],"list .",[1],"one .",[1],"meg .",[1],"txt { margin-bottom: ",[0,20],"; }\n.",[1],"radar_list .",[1],"radar_one .",[1],"list .",[1],"one .",[1],"meg .",[1],"txt wx-view { display: inline-block; }\n.",[1],"radar_list .",[1],"radar_one .",[1],"list .",[1],"one .",[1],"meg .",[1],"txt wx-view wx-text { color: #4A77B0; }\n.",[1],"radar_list .",[1],"radar_one .",[1],"list .",[1],"one .",[1],"meg .",[1],"txt, .",[1],"radar_list .",[1],"radar_one .",[1],"list .",[1],"one .",[1],"meg .",[1],"title { color: #373737; font-size: ",[0,30],"; line-height: ",[0,35],"; }\n.",[1],"radar_list .",[1],"radar_one .",[1],"list .",[1],"one .",[1],"date { width: ",[0,100],"; color: #919191; font-size: ",[0,30],"; text-align: center; display: -webkit-box; display: -webkit-flex; display: flex; -webkit-box-pack: center; -webkit-justify-content: center; justify-content: center; -webkit-box-align: center; -webkit-align-items: center; align-items: center; }\n",],undefined,{path:"./pages/radar/radar.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/radar/radar.wxml') } }));
+        }
+        if(window.__uniAppViewReady__){
+          uniAppViewReadyCallback()
+        }else{
+          document.addEventListener('uniAppViewReady',uniAppViewReadyCallback)
+        }
+      })();
+      

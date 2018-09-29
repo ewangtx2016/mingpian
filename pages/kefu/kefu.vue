@@ -1,188 +1,255 @@
 <template>
-	<view class="content">
-		<!-- 
-		<view class="xiaoming xiaoxiao">
-			<text class="name">小明</text>
-			<view class="list">
-				<view class="li" v-for="(item,key) in mymess" :key="key">
-					<view class="h1">
-						{{item.text}}
-					</view>
-					<view class="date">
-						{{item.updatedAt}}
+	<view class="kefu">
+		
+		<block v-for="(item, index) of thisList" :key="index">
+			<view class="time" v-if="nowTime != item.time">
+				<text>
+					{{item.time}}
+				</text>
+			</view>
+			
+			<view :class="item.type == 'zhu' ? 'one' : 'one two' ">
+				<view class="li">
+					
+				</view>
+				<view class="mes">
+					<!-- 未读 class="box noread" -->
+					<view class="box" > 
+						{{item.mesg}}
+						<text class="jian"></text>
 					</view>
 				</view>
-			</view>
-		</view>
-		<view class="xiaohong xiaoxiao"> 
-			<text class="name">小红</text>	
-			<view class="list">
-				<view class="li" v-for="(item,key) in youmess" :key="key">
-					<view class="h1">
-						{{item.text}}
-					</view>
-					<view class="date">
-						{{item.updatedAt}}
-					</view>
+				<view class="li">
+					<image :src="item.imgurl" mode="aspectFill"></image>
 				</view>
 			</view>
+		</block>
+		
+		<!-- 聊天窗口 -->
+		
+		<view class="sub_box">
+			<input type="text"  value="" v-model="inputvalue"  />
+			<button type="primary" @tap="subMessage">发送</button>
 		</view>
 		
-		<view class="submit">
-			<input  v-model="xiaoxi"  placeholder="@xxx 聊天" />
-			<button @tap="setMessage()" type="default">留言</button>
-		</view> -->
-	</view>
+	</view> 
 </template>
 
 <script>
-// 	import AV from '../../static/js/av-weapp-min.js'
-// 	import {Realtime, TextMessage, Event} from '../../static/js/realtime.weapp.min.js' 
-// 	
-// 	// 初始化即时通讯 
-// 	const realtime = new Realtime({
-// 		appId: '2QYYLWusXmvGO7uE2CTL7J0j-gzGzoHsz',
-// 		appKey: '0oRtHAr5HReVfjQEuf4fcrYN',
-// 	});
-// 	
-// 	
-// 	export default {
-// 		data(){
-// 			return {
-// 				title: 'kefuxitong',
-// 				mymess: [],
-// 				youmess: [],
-// 				xiaoxi: ''
-// 			}
-// 		},
-// 		mounted(){
-// 			this.soctket()
-// 			this.getMessage()
-// 		},
-// 		methods:{
-// 			soctket(){
-// 					wx.connectSocket({
-// 						url: 'ws://pusher.51play.com/websocket'
-// 						
-// 					})
-// 					
-// 					wx.onSocketOpen(function(res){
-// 						console.log(res)
-// 					})
-// 			},
-// 			getMessage(){
-// 				let _this = this
-// 				// Jerry 登录
-// 				realtime.createIMClient('Jerry').then(function(jerry) {
-// 				jerry.on(Event.MESSAGE, function(message, conversation) {
-// 					_this.youmess.push(message)
-// 				});
-// 				}).catch(console.error);
-// 			},
-// 			setMessage(){
-// 				let _this = this
-// 				if(_this.xiaoxi == ''){
-// 					uni.showToast({
-// 						title: '聊天内容不能为空',
-// 						duration: 2000
-// 					})
-// 					return
-// 				}
-// 				// Tom 用自己的名字作为 clientId，获取 IMClient 对象实例
-// 				realtime.createIMClient('Tom').then(function(tom) {
-// 				  // 创建与Jerry之间的对话
-// 				  return tom.createConversation({
-// 					members: ['Jerry'],
-// 					name: 'Tom & Jerry',
-// 				  });
-// 				}).then(function(conversation) {
-// 				  // 发送消息
-// 				  return conversation.send(new TextMessage(`${_this.xiaoxi}`));
-// 				}).then(function(mesg) {
-// 				  _this.mymess.push(mesg)
-// 				  _this.xiaoxi = ''
-// 				}).catch(console.error);
-// 			}
-// 		},
-// 	}
-</script>
-
-<style lang="less">
-	.content { 
-		flex: 1;
-		justify-content: center;
-		align-items: center;
-	}
-
-	.title {
-		font-size: 36px;
-		color: #8f8f94;
-	}
+	const { Realtime, TextMessage } = require('../../static/js/realtime.weapp.min.js')
 	
-	.list{
-		margin-top: 40px;
-		margin-bottom: 20px;
-		
-		.li{
-			font-size: 20px;
+	const PUBLIC = require('../../static/js/public.js')
+	
+	
+	export default {
+		data(){
+			return {
+				thisList: [],
+				inputvalue: '',
+				nowTime: PUBLIC.RETURN_NEWTIME_X(new Date().getTime())
+			}
+		},
+		mounted(){
 			
-			.h1{}
-			.date{
-				font-size: 16px;
-				color: #CCCCCC;
+		},
+		onLoad:function(query){
+			let storage = uni.getStorageSync('CODE')
+			let userinfo = uni.getStorageSync('USERINFO')
+			this.userinfo = userinfo
+			this.ke_id = `KE_${query.userid}`
+			this.zhu_id = `ZHU_${storage.userId}`
+			this.setSocket()
+			this.addMessage({
+				msg: '首发消息'
+			})
+		},
+		methods:{
+			// 发送消息
+			subMessage(){
+				console.log(this.inputvalue)
+				this.addMessage({
+					msg: this.inputvalue
+				})
+			},
+			setSocket(){
+					// 初始化即时通讯 SDK
+					this.realtime = new Realtime({
+						appId: '99csVkB6vMSHk1XPuiuB8W3c-gzGzoHsz',
+						appKey: 'mpo0IaNxiCBd3bgOT7Q5Gxpo',
+					});
+			},
+			addMessage({msg}){
+				let _this = this
+				_this.realtime.createIMClient(_this.zhu_id).then(function(tom) {
+					return tom.createTemporaryConversation({
+						members: [_this.ke_id],
+					});
+				}).then(function(conversation) {
+						return conversation.send(new TextMessage(msg));
+				}).then((data)=>{
+						console.log('消息发送成功', data)
+						let mess = {
+							mesg: msg,
+							time: PUBLIC.RETURN_NEWTIME_X(new Date().getTime()),
+							type: 'zhu',
+							imgurl: _this.userinfo.avatarUrl
+						}
+						_this.thisList.push(mess)
+				}).catch(console.error);
 			}
 		}
 	}
-	
-	.xiaoxiao{
-		background: #ededed;
-		border-radius: 10px;
-		margin: 10px;
-		min-height: 200px;
-		padding: 10px;
-		position: relative;
-	}
-	
-	.xiaoxiao{
-		.name{
-			position: absolute;
-			width: 100%;
-			height: 20px;
-			line-height: 20px;
-			text-align: center;
-			color: #000;
-			font-size: 22px;
-			left: 0;
-			top: 10px;
-			border-bottom: 1px dashed #ccc;
-			padding-bottom: 10px;
-		}		
-	}
-	
-	.xiaohong{
-		background: #fff;
-		border: 1px solid #EDEDED;
-	}
-	
-	
-	.submit{
-		position: fixed;
-		bottom: 0;
-		left: 0;
-		width: 100%;
-		display: flex;
-		box-shadow: 0 0 3px rgba(0,0,0,0.2);
+</script>
+
+<style lang="less">
+	.kefu{
+		overflow: hidden;
+		min-height: 100%;
+		background: rgba(242,242,242,1);
+		padding-bottom: 100px;
 		
-		input{
-			flex: 1;
-			font-size: 26px;
-			height: 100%;
-			padding: 20px;
+		.sub_box{
+			position: fixed;
+			bottom: 20px;
+			left: 0;
+			width: 100%;
+			height: 70px;
+			display:flex;
+			padding: 0 20px;
+			box-sizing:border-box;
+			
+			input{
+				border-radius: 10px;
+				border:2px solid rgba(145,145,145,0.5);
+				background: #fff;
+				flex: 1;
+				height: 100%;
+				padding: 0 20px;
+			}
+			
+			button{
+				width: 120px;
+				height: 100%;
+				padding: 0;
+				background: #4A77B0;
+				font-size: 35px;
+				margin-left: 20px;
+				line-height: 200%;
+			}
 		}
-		button{
-			width: 120px;
-			font-size: 26px;
+		
+		.time{
+			margin: 20px 0;
+			text-align: center;
+			
+			text{
+				background: rgba(153,153,153,1);
+				color: #fff;
+				border-radius: 100px;
+				display: inline-block;
+				margin: auto;
+				font-size: 25px;
+				text-align: center;
+				padding: 10px 30px;
+			}
+		}
+		
+		.one{
+			
+			
+			&.two{
+				.mes{
+					text-align: left;
+					.box{
+						background:#fff;
+						border: 1px solid #EDEDED;
+						color:#000000;
+						
+						&.noread{
+							&:after{
+								position: absolute;
+								content: '未读';
+								font-size: 25px;
+								color: #4A77B0;
+								left: auto;								
+								right: -80px;
+								top: 50%;
+								margin-top: -20px;
+							}
+						}
+						
+						.jian{
+							right: auto;
+							left: -10px;
+							background: #FFFFFF;
+							border-left:1px solid #EDEDED;							
+							border-bottom:1px solid #EDEDED;
+						}
+					}
+				}
+			}
+			
+			
+			
+			display: flex;
+			margin: 30px 0;
+			
+			.li{
+				width: 150px;
+				text-align:center;
+				image{
+					width:120px;
+					height: 120px;
+					display: inline-block;
+					border-radius: 1000px;
+					background: #EDEDED;
+					box-shadow: 0 0 20px rgba(0,0,0,0.2);
+				}
+			}
+			
+			.mes{
+				flex: 1;
+				text-align: right;
+				
+				.box{
+					border-radius: 20px;
+					background: #4A77B0;
+					color: #fff;
+					font-size: 30px;
+					padding: 20px;
+					display: inline-block;
+					margin-right: 20px;
+					margin-left: 20px;
+					position: relative;
+					text-align:left;
+					
+					
+					&.noread{
+						&:after{
+							position: absolute;
+							content: '未读';
+							font-size: 25px;
+							color: #4A77B0;
+							left: -80px;
+							top: 50%;
+							margin-top: -20px;
+						}
+					}
+					
+					.jian{
+						content: '';
+						position: absolute;
+						width: 20px;
+						height: 20px;
+						right: -10px;
+						top: 20px;
+						transform: rotate(45deg);
+						background: #4A77B0;
+					}
+				}
+			}
 			
 		}
+		
 	}
 </style>

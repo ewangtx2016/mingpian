@@ -1,0 +1,7 @@
+<template name="7ebcb3fe">
+  <view class="_view data-v-1822132d radar_menu">
+    <navigator url="/pages/radar/radar" class="_navigator data-v-1822132d {{pagename == 'radar' ? 'hover' : ''}}"> 时间 </navigator>
+    <navigator url="/pages/radar_x/radar_x" class="_navigator data-v-1822132d {{pagename == 'radar_x' || pagename == 'radar_x_page' ? 'hover' : ''}}"> 行为 </navigator>
+    <navigator url="/pages/radar_p/radar_p" class="_navigator data-v-1822132d {{pagename == 'radar_p' ? 'hover' : ''}}"> 人 </navigator>
+  </view>
+</template>

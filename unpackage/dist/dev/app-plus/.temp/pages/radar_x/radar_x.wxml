@@ -1,0 +1,1 @@
+<import src="/pages/radar_x/radar_x.vue.wxml" /><template is="64e8e2ec" data="{{ ...$root['0'], $root }}"/>
