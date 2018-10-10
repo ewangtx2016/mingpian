@@ -1,9 +1,0 @@
-<import src="/components/message.vue.wxml" />
-<import src="/components/radar_menu.vue.wxml" />
-<import src="/components/ldmenu.vue.wxml" />
-<import src="/components/radar_menu.vue.wxml" />
-<import src="/components/date.vue.wxml" />
-<import src="/components/ldmenu.vue.wxml" />
-<import src="/components/menu.vue.wxml" />
-<import src="/components/message.vue.wxml" />
-<import src="/components/ldmenu.vue.wxml" />

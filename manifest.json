@@ -46,7 +46,7 @@
 
     },
     "mp-weixin": { /* 小程序特有相关 */
-        "appid": "wx0ced4e871b804a48", // wxca7f339f171b30cc
+        "appid": "wxca7f339f171b30cc", // wxca7f339f171b30cc
 		"setting": {
 			"urlCheck": false,
 			"es6": true

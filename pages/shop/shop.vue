@@ -10,7 +10,7 @@
 	export default {
 		data(){
 			return {
-				websrc: 'http://aidou.51play.com/shop/shop.shtml' 
+				websrc: 'https://static-shop-jt.51play.com/shop/shop.shtml' 
 			}
 		},
 		computed: {

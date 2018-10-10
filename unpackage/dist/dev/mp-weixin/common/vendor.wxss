@@ -81,19 +81,26 @@
   background: #fff;
   box-shadow: 0 0 20rpx rgba(0, 0, 0, 0.2);
 }
-.footer_menu navigator {
+.footer_menu .navigator {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
   height: 100%;
+  background: none;
+  border: none;
 }
-.footer_menu navigator > view {
+.footer_menu .navigator:after,
+.footer_menu .navigator:before {
+  background: none;
+  border: none;
+}
+.footer_menu .navigator > view {
   width: 100%;
   height: 100%;
   box-sizing: border-box;
   padding: 5% 0;
 }
-.footer_menu navigator image {
+.footer_menu .navigator image {
   height: 100%;
   width: 100%;
 }

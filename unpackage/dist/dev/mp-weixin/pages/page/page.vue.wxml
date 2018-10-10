@@ -104,7 +104,7 @@
       <view class="_view data-v-217f3ac0 tuij">
         <view class="_view data-v-217f3ac0 one">
           <view class="_view data-v-217f3ac0 img">
-            <image src="../../static/images/touxiang.jpg" mode="aspectFit" class="_image data-v-217f3ac0"></image>
+            <image src="../../static/images/touxiang.png" mode="aspectFit" class="_image data-v-217f3ac0"></image>
           </view>
           <view class="_view data-v-217f3ac0 txt">
             <view class="_view data-v-217f3ac0 title"> 推荐产品，这是一个推荐的产品名称，何止何来，如果规划，怎么如何，你不知道！ </view>
@@ -113,7 +113,7 @@
         </view>
         <view class="_view data-v-217f3ac0 one">
           <view class="_view data-v-217f3ac0 img">
-            <image src="../../static/images/touxiang.jpg" mode="aspectFit" class="_image data-v-217f3ac0"></image>
+            <image src="../../static/images/touxiang.png" mode="aspectFit" class="_image data-v-217f3ac0"></image>
           </view>
           <view class="_view data-v-217f3ac0 txt">
             <view class="_view data-v-217f3ac0 title"> 推荐产品，这是一个推荐的产品名称，何止何来，如果规划，怎么如何，你不知道！ </view>
@@ -122,10 +122,11 @@
         </view>
       </view>
     </view>
-    <template data="{{...$root[$kk+'0'], $root}}" is="64470d36"></template>
+    <template bindchildByValue="handleProxy" data-eventid="{{'10'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'0'], $root}}" is="64470d36"></template>
     <template data="{{...$root[$kk+'1'], $root}}" is="5e99e11e"></template>
-    <view class="_view data-v-217f3ac0 icon_kefu" bindtap="handleProxy" data-eventid="{{'10'}}" data-comkey="{{$k}}">
+    <view class="_view data-v-217f3ac0 icon_kefu">
       <image src="../../static/images/liuyan.png" mode="scaleToFill" class="_image data-v-217f3ac0"></image>
+      <button type="default" open-type="contact" class="_button data-v-217f3ac0"></button>
     </view>
   </view>
 </template>

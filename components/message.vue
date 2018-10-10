@@ -151,6 +151,12 @@
 			_this.getSocketLine()
 			
 		},
+		onShow(){
+			
+		},
+		onHide(){
+			
+		},
 		mounted(){
 			
 		}

@@ -1,18 +1,24 @@
 <template>
 	<view class="sho_menu">
 		<view class="footer_menu">
-			<navigator url="/pages/radar/radar">
+			<navigator class="navigator" url="/pages/radar/radar">
 				<view class="mp">
 					<image v-if="pagename == 'radar' || pagename == 'radar_p' || pagename == 'radar_x' || pagename == 'radar_x_page'" src="/static/images/icon_ld_hover.png" mode="aspectFit"></image>
 					<image v-else src="/static/images/icon_ld.png" mode="aspectFit"></image>
 				</view>
 			</navigator>
-			<navigator  url="/pages/message/message">
+			<!-- <navigator  class="navigator"  url="/pages/message/message">
 				<view class="shop">
 					<image v-if="pagename == 'message' || pagename == 'messagepage'" src="/static/images/icon_xx_hover.png" mode="aspectFit"></image>
 					<image v-else src="/static/images/icon_xx.png" mode="aspectFit"></image>  
 				</view>
-			</navigator>
+			</navigator> -->
+			<button type="primary"  open-type="contact"  class="navigator" >
+				<view class="shop">
+					<image v-if="pagename == 'message' || pagename == 'messagepage'" src="/static/images/icon_xx_hover.png" mode="aspectFit"></image>
+					<image v-else src="/static/images/icon_xx.png" mode="aspectFit"></image>  
+				</view>
+			</button>
 		</view>
 	</view>
 </template>
@@ -57,9 +63,18 @@
 		background: #fff;
 		box-shadow: 0 0 20px rgba(0,0,0,0.2);
 		
-		navigator{
+		
+		
+		.navigator{
 			flex: 1;
 			height: 100%;
+			background: none;
+			border: none;
+			
+			&:after,&:before{
+				background: none;
+				border: none;
+			}
 			
 			> view{
 				width: 100%;

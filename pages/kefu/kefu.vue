@@ -95,6 +95,7 @@
 							imgurl: _this.userinfo.avatarUrl
 						}
 						_this.thisList.push(mess)
+						_this.inputvalue = ''
 				}).catch(console.error);
 			}
 		}

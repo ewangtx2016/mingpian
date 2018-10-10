@@ -27,6 +27,8 @@ export default {
 		 let newdata = radar.newdata // 名片数据
 		 let type = radar.type || 'visit_business_card' //用户行为类型
 		 
+		 console.log('信息--------', newdata)
+		 
 		 uni.request({
 		 	url: `${state.HTTPS_URL}/event/radar`,
 		 	method: 'POST',

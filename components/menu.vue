@@ -8,7 +8,7 @@
 				</view>
 			</navigator>
 					
-			<navigator  url="/pages/shop/shop">
+			<navigator @click="goParentUrl"  url="/pages/shop/shop">
 				<view class="shop">
 					<image v-if="pagename == 'shop'" src="/static/images/icon_shop_hover.png" mode="aspectFit"></image>
 					<image v-else src="/static/images/icon_shop.png" mode="aspectFit"></image>
@@ -27,6 +27,10 @@
 			}
 		},
 		methods: {
+			// 字传父亲
+			goParentUrl(){
+				this.$emit('childByValue')
+			},
 			getPage(){
 				let pages = getCurrentPages()
 				let nowpage = pages[pages.length - 1]

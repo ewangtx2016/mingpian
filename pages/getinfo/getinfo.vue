@@ -24,7 +24,7 @@
 		},
 		onLoad(query){
 			this.type = query.type
-			this.cardId = query.cardid || ''
+			this.cardId = query.cardId || ''
 			
 			// this.getBy(this.cardId)
 			this.getBy(this.cardId)

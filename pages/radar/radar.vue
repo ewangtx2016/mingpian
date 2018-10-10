@@ -133,19 +133,19 @@
 		},
 		methods:{
 			// 获取雷达数据 - 时间 数据
-			getList(currentPage, pageSize, crTime){
+			getList(currentPage, pageSize, orderByClause){
 				let _this = this
 				
 				currentPage = currentPage ? currentPage : 1
 				pageSize = pageSize ? pageSize : 10
-				crTime = crTime ? crTime : 'crTime'
+				orderByClause = orderByClause ? orderByClause : 'crTime,desc'
 				
 				return PUBLIC.GET({
 					url: `${_this.HTTPS_URL}/event/radar/list`,
 					data: {
 						currentPage,
 						pageSize,
-						crTime
+						orderByClause
 					}
 				}).then((data)=>{
 					let newData = data.events

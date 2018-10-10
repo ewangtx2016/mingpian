@@ -94,7 +94,7 @@
 					
 					<view class="one">
 						<view class="img">
-							<image src="../../static/images/touxiang.jpg" mode="aspectFit"></image>
+							<image src="../../static/images/touxiang.png" mode="aspectFit"></image>
 						</view>
 						<view class="txt">
 							<view class="title">
@@ -108,7 +108,7 @@
 					
 					<view class="one">
 						<view class="img">
-							<image src="../../static/images/touxiang.jpg" mode="aspectFit"></image>
+							<image src="../../static/images/touxiang.png" mode="aspectFit"></image>
 						</view>
 						<view class="txt">
 							<view class="title">
@@ -125,20 +125,20 @@
 		
 		
 		<!-- 底部菜单 - 悬浮 -->
-		<fotermenu></fotermenu>
+		<fotermenu @childByValue="childByValue"></fotermenu>
 		
 		<!-- 消息体 -->
 		<txtmessage></txtmessage>
 		
 		
 		<!-- 留言按钮 -->
-		<!-- <view  class="icon_kefu">
+		<view  class="icon_kefu">
 			<image src="../../static/images/liuyan.png" mode="scaleToFill"></image>
 			<button type="default" open-type="contact"></button>
-		</view> -->
-		<view class="icon_kefu" @tap="gokefu(mes.userid)">
-			<image src="../../static/images/liuyan.png" mode="scaleToFill"></image>
 		</view>
+		<!-- <view class="icon_kefu" @tap="gokefu(mes.userid)">
+			<image src="../../static/images/liuyan.png" mode="scaleToFill"></image>
+		</view> -->
 	</view>
 </template>
 
@@ -192,6 +192,16 @@
 		
 		},
 		methods:{
+			// 父亲接受子级传来的事件
+			childByValue(){
+				  //记录用户行为 进入商城 
+					let _this = this
+					// 上传用户行为 - 进入商城
+					_this.UPDATA_USER_RADAR({
+						type: 'visit_shopping_mall',
+						newdata: _this.mes
+					})
+			},
 			// 跳转到指定客服
 			gokefu(userid){
 				let _this = this
@@ -268,7 +278,7 @@
 			// 添加本地通讯录
 			addphone(){
 				uni.addPhoneContact({
-					photoFilePath: '../../static/images/touxiang.jpg',
+					photoFilePath: '../../static/images/touxiang.png',
 					nickName: this.mes.cardName,
 					mobilePhoneNumber: this.mes.cardTel,
 					weChatNumber: this.mes.cardWeixinid,
