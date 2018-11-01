@@ -12,21 +12,21 @@
         <view class="_view data-v-3c8a12d4 span">*</view>
         <view class="_view data-v-3c8a12d4 txt"> OpenID </view>
         <view class="_view data-v-3c8a12d4 input">
-          <input type="text" value="" bindinput="handleProxy" data-eventid="{{'yCe-0'}}" data-comkey="{{$k}}" class="_input data-v-3c8a12d4" />
+          <input type="text" value="" bindinput="handleProxy" data-eventid="{{'sWY-0'}}" data-comkey="{{$k}}" class="_input data-v-3c8a12d4" />
         </view>
       </view>
       <view class="_view data-v-3c8a12d4 p1">
         <view class="_view data-v-3c8a12d4 span">*</view>
         <view class="_view data-v-3c8a12d4 txt"> 姓名 </view>
         <view class="_view data-v-3c8a12d4 input">
-          <input type="text" value="" bindinput="handleProxy" data-eventid="{{'c8a-1'}}" data-comkey="{{$k}}" class="_input data-v-3c8a12d4" />
+          <input type="text" value="" bindinput="handleProxy" data-eventid="{{'j8u-1'}}" data-comkey="{{$k}}" class="_input data-v-3c8a12d4" />
         </view>
       </view>
       <view class="_view data-v-3c8a12d4 p1">
         <view class="_view data-v-3c8a12d4 span">*</view>
         <view class="_view data-v-3c8a12d4 txt"> 绑定微信手机号 </view>
         <view class="_view data-v-3c8a12d4 input">
-          <input type="text" value="" bindinput="handleProxy" data-eventid="{{'npw-2'}}" data-comkey="{{$k}}" class="_input data-v-3c8a12d4" />
+          <input type="text" value="" bindinput="handleProxy" data-eventid="{{'97I-2'}}" data-comkey="{{$k}}" class="_input data-v-3c8a12d4" />
         </view>
       </view>
       <view class="_view data-v-3c8a12d4 p2">
@@ -36,11 +36,11 @@
         <view class="_view data-v-3c8a12d4 span">*</view>
         <view class="_view data-v-3c8a12d4 txt"> 名片展示手机号 </view>
         <view class="_view data-v-3c8a12d4 input">
-          <input type="text" value="" bindinput="handleProxy" data-eventid="{{'BlF-3'}}" data-comkey="{{$k}}" class="_input data-v-3c8a12d4" />
+          <input type="text" value="" bindinput="handleProxy" data-eventid="{{'3IL-3'}}" data-comkey="{{$k}}" class="_input data-v-3c8a12d4" />
         </view>
       </view>
       <view class="_view data-v-3c8a12d4 button">
-        <button class="_button data-v-3c8a12d4 ubtn" bindtap="handleProxy" data-eventid="{{'CEz-4'}}" data-comkey="{{$k}}">保 存</button>
+        <button class="_button data-v-3c8a12d4 ubtn" bindtap="handleProxy" data-eventid="{{'BvF-4'}}" data-comkey="{{$k}}">保 存</button>
       </view>
     </view>
   </view>

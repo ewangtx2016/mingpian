@@ -3,7 +3,7 @@
   <view class="_view data-v-6939f4a6 ming_list">
     <block wx:key="index" key="{{index}}" wx:for="{{listdata}}" wx:for-index="index" wx:for-item="item">
       <view class="_view data-v-6939f4a6 msag">{{item.createTime}}</view>
-      <view bindtap="handleProxy" data-eventid="{{'XXG-0-'+index}}" data-comkey="{{$k}}" class="_view data-v-6939f4a6 {{item.radarStatus == 1 ? 'li' : 'li active'}}">
+      <view bindtap="handleProxy" data-eventid="{{'Dvt-0-'+index}}" data-comkey="{{$k}}" class="_view data-v-6939f4a6 {{item.radarStatus == 1 ? 'li' : 'li active'}}">
         <view class="_view data-v-6939f4a6 li_left">
           <view class="_view data-v-6939f4a6 title txtover">{{item.companyName}}</view>
           <view class="_view data-v-6939f4a6 name txtover" wx:if="{{item.userid != ownuserid}}"> {{item.cardName}} </view>
@@ -26,6 +26,6 @@
       </view>
     </block>
     <navigator class="_navigator data-v-6939f4a6 icon_leida" url="/pages/radar/radar">雷达</navigator>
-    <template data="{{...$root['0'], ...$root[$kk+'AEk-0'],$root}}" is="5e99e11e"></template>
+    <template data="{{...$root['0'], ...$root[$kk+'ZKu-0'],$root}}" is="5e99e11e"></template>
   </view>
 </template>

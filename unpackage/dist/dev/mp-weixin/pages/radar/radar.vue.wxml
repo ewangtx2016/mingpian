@@ -3,7 +3,7 @@
 <template name="301a8618">
   <view class="_view data-v-665b5e0e radar_father">
     <view class="_view data-v-665b5e0e radar">
-      <template data="{{...$root['0'], ...$root[$kk+'0oY-0'],$root}}" is="7ebcb3fe"></template>
+      <template data="{{...$root['0'], ...$root[$kk+'nH6-0'],$root}}" is="7ebcb3fe"></template>
     </view>
     <view class="_view data-v-665b5e0e radar_list">
       <view class="_view data-v-665b5e0e radar_one" wx:key="index" key="{{index}}" wx:for="{{datalist}}" wx:for-index="index" wx:for-item="item">
@@ -70,6 +70,6 @@
         </view>
       </view>
     </view>
-    <template data="{{...$root['0'], ...$root[$kk+'Ni1-1'],$root}}" is="124de946"></template>
+    <template data="{{...$root['0'], ...$root[$kk+'70N-1'],$root}}" is="124de946"></template>
   </view>
 </template>
