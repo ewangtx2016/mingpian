@@ -1,5 +1,6 @@
 <template name="d198c4f8">
-  <view class="_view data-v-61b94a00">
+  <view class="_view data-v-61b94a00 web_url">
+    <navigator class="_navigator data-v-61b94a00 web_link" url="/pages/index/index">返回名片</navigator>
     <web-view src="{{websrc}}" bindload="xiaoqiang" class="_web-view data-v-61b94a00"></web-view>
   </view>
 </template>

@@ -1,0 +1,5 @@
+<template name="7fb4fbb8">
+  <view class="_view data-v-3101e520 webview">
+    <web-view src="{{HTTP_DAILI}}" class="_web-view data-v-3101e520"></web-view>
+  </view>
+</template>

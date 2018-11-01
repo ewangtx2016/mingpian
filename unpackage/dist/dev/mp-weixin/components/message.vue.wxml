@@ -1,6 +1,6 @@
 <template name="5e99e11e">
   <view class="_view data-v-626296a2 mess_list">
-    <view class="_view data-v-626296a2 message" animation="{{animation}}" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">
+    <view class="_view data-v-626296a2 message" animation="{{animation}}" bindtap="handleProxy" data-eventid="{{'0mk-0'}}" data-comkey="{{$k}}">
       <image class="_image data-v-626296a2 img" src="/static/images/touxiang.jpg" mode="aspectFit"></image>
       <view class="_view data-v-626296a2 txt">
         <view class="_view data-v-626296a2 title">

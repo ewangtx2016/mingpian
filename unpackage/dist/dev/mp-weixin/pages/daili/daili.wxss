@@ -1,0 +1,94 @@
+@import "../../common/vendor.wxss";
+
+.daili {
+  padding: 20rpx;
+}
+.daili .share {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+.daili .share .txt {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  font-size: 20rpx;
+  overflow: hidden;
+}
+.daili .share .txt .p {
+  width: 100%;
+  height: 30rpx;
+  line-height: 30rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-size: 30rpx;
+  margin: 10rpx 0;
+}
+.daili .share .fx {
+  width: 200rpx;
+  margin-left: 30rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  margin-top: 20rpx;
+  border-radius: 5rpx;
+}
+.daili .from {
+  margin: 50rpx 0;
+}
+.daili .from .p2 {
+  font-size: 20rpx;
+  color: #939393;
+  margin-bottom: 50rpx;
+}
+.daili .from .button {
+  margin-top: 100rpx;
+}
+.daili .from .p1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  overflow: hidden;
+  margin: 30rpx 0;
+}
+.daili .from .p1 .span {
+  width: 20rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #ff2020;
+  font-size: 40rpx;
+}
+.daili .from .p1 .txt {
+  width: 250rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 30rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.daili .from .p1 .input {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+}
+.daili .from .p1 .input ._input {
+  height: 80rpx;
+  line-height: 80rpx;
+  border: 2rpx solid #4a77b0;
+  border-radius: 10rpx;
+  font-size: 30rpx;
+  padding: 0 20rpx;
+}
+.ubtn {
+  background: #4a77b0;
+  color: #fff;
+  font-size: 30rpx;
+  border-radius: 20rpx;
+  height: 86rpx;
+  line-height: 86rpx;
+  border-radius: 10rpx;
+}
+.ubtn:after {
+  border: none;
+}

@@ -68,6 +68,20 @@
 			"style": {
 				"navigationBarTitleText": "消息"
 			}
+		},
+		// 分享webview
+		{
+			"path": "pages/webshare/webshare",
+			"style": {
+				"navigationBarTitleText": "分享"
+			}
+		},
+		// 代理页面 - 开通页面
+		{
+			"path": "pages/daili/daili",
+			"style": {
+				"navigationBarTitleText": "分享"
+			}
 		}
 	],
 	"globalStyle": { 
@@ -114,6 +128,14 @@
 			{
 				"name": "message",
 				"path": "pages/message/message"
+			},
+			{
+				"name": "webshare",
+				"path": "pages/webshare/webshare"
+			},
+			{
+				"name": "daili",
+				"path": "pages/daili/daili"
 			}
 		]
 	}

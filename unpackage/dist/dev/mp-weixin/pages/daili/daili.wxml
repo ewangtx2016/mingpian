@@ -1,0 +1,1 @@
+<import src="/pages/daili/daili.vue.wxml" /><template is="06493ade" data="{{ ...$root['0'], $root }}"/>

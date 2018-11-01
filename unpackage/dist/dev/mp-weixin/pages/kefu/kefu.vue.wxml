@@ -1,5 +1,5 @@
 <template name="aecbb538">
-  <view class="_view data-v-3eec3a40 kefu">
+  <view class="_view data-v-3eec3a40 kefu" id="j_page">
     <block wx:key="index" key="{{index}}" wx:for="{{thisList}}" wx:for-index="index" wx:for-item="item">
       <view class="_view data-v-3eec3a40 time" wx:if="{{nowTime != item.time}}">
         <text class="_text data-v-3eec3a40"> {{item.time}} </text>
@@ -17,8 +17,8 @@
       </view>
     </block>
     <view class="_view data-v-3eec3a40 sub_box">
-      <input type="text" value="{{inputvalue}}" bindinput="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_input data-v-3eec3a40" />
-      <button type="primary" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}" class="_button data-v-3eec3a40">发送</button>
+      <input type="text" value="{{inputvalue}}" bindinput="handleProxy" bindconfirm="handleProxy" data-eventid="{{'ORo-0'}}" data-comkey="{{$k}}" class="_input data-v-3eec3a40" />
+      <button type="primary" bindtap="handleProxy" data-eventid="{{'xSV-1'}}" data-comkey="{{$k}}" class="_button data-v-3eec3a40">发送</button>
     </view>
   </view>
 </template>

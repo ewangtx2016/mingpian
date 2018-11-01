@@ -4,26 +4,26 @@
 <template name="64e8e2ec">
   <view class="_view data-v-20d5dac0 radar_father">
     <view class="_view data-v-20d5dac0 radar">
-      <template data="{{...$root[$kk+'0'], $root}}" is="7ebcb3fe"></template>
+      <template data="{{...$root['0'], ...$root[$kk+'tUU-0'],$root}}" is="7ebcb3fe"></template>
     </view>
     <view class="_view data-v-20d5dac0 check_time">
       <text class="_text data-v-20d5dac0"> 7天内被查看的行为统计 </text>
-      <view class="_view data-v-20d5dac0 button" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">
+      <view class="_view data-v-20d5dac0 button" bindtap="handleProxy" data-eventid="{{'V8r-0'}}" data-comkey="{{$k}}">
         <image src="../../static/images/icon_rili.png" mode="aspectFit" class="_image data-v-20d5dac0"></image>
       </view>
     </view>
-    <template binddateclick="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'1'], $root}}" is="5cb49434"></template>
+    <template binddateclick="handleProxy" data-eventid="{{'D4G-1'}}" data-comkey="{{$k}}" data="{{...$root['0'], ...$root[$kk+'DUa-1'],$root}}" is="5cb49434"></template>
     <view class="_view data-v-20d5dac0 bg_white">
       <view class="_view data-v-20d5dac0 pic_link">
         <view class="_view data-v-20d5dac0 li">
-          <view class="_view data-v-20d5dac0 one" bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}">
+          <view class="_view data-v-20d5dac0 one" bindtap="handleProxy" data-eventid="{{'qIa-2'}}" data-comkey="{{$k}}">
             <image src="../../static/images/icon_ld1.png" mode="scaleToFill" class="_image data-v-20d5dac0"></image>
             <view class="_view data-v-20d5dac0 txt">
               <view class="_view data-v-20d5dac0 h"> 查看商品 </view>
               <view class="_view data-v-20d5dac0 p"> {{listdata.visit_product}} </view>
             </view>
           </view>
-          <view class="_view data-v-20d5dac0 one" bindtap="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}">
+          <view class="_view data-v-20d5dac0 one" bindtap="handleProxy" data-eventid="{{'nND-3'}}" data-comkey="{{$k}}">
             <image src="../../static/images/icon_ld2.png" mode="scaleToFill" class="_image data-v-20d5dac0"></image>
             <view class="_view data-v-20d5dac0 txt">
               <view class="_view data-v-20d5dac0 h"> 查看名片 </view>
@@ -32,14 +32,14 @@
           </view>
         </view>
         <view class="_view data-v-20d5dac0 li">
-          <view class="_view data-v-20d5dac0 one" bindtap="handleProxy" data-eventid="{{'4'}}" data-comkey="{{$k}}">
+          <view class="_view data-v-20d5dac0 one" bindtap="handleProxy" data-eventid="{{'mXu-4'}}" data-comkey="{{$k}}">
             <image src="../../static/images/icon_ld3.png" mode="scaleToFill" class="_image data-v-20d5dac0"></image>
             <view class="_view data-v-20d5dac0 txt">
               <view class="_view data-v-20d5dac0 h"> 购买次数 </view>
               <view class="_view data-v-20d5dac0 p"> {{listdata.pay_success}} </view>
             </view>
           </view>
-          <view class="_view data-v-20d5dac0 one" bindtap="handleProxy" data-eventid="{{'5'}}" data-comkey="{{$k}}">
+          <view class="_view data-v-20d5dac0 one" bindtap="handleProxy" data-eventid="{{'bTD-5'}}" data-comkey="{{$k}}">
             <image src="../../static/images/icon_ld4.png" mode="scaleToFill" class="_image data-v-20d5dac0"></image>
             <view class="_view data-v-20d5dac0 txt">
               <view class="_view data-v-20d5dac0 h"> 转发名片 </view>
@@ -49,12 +49,12 @@
         </view>
       </view>
       <view class="_view data-v-20d5dac0 menu_list">
-        <view class="_view data-v-20d5dac0 li" bindtap="handleProxy" data-eventid="{{'6'}}" data-comkey="{{$k}}">
+        <view class="_view data-v-20d5dac0 li" bindtap="handleProxy" data-eventid="{{'AJ5-6'}}" data-comkey="{{$k}}">
           <image src="../../static/images/icon_ld_1.png" mode="widthFix" class="_image data-v-20d5dac0"></image>
           <view class="_view data-v-20d5dac0 txt"> 咨询客服 </view>
           <view class="_view data-v-20d5dac0 nub"> {{listdata.consult}} </view>
         </view>
-        <view class="_view data-v-20d5dac0 li" bindtap="handleProxy" data-eventid="{{'7'}}" data-comkey="{{$k}}">
+        <view class="_view data-v-20d5dac0 li" bindtap="handleProxy" data-eventid="{{'vRH-7'}}" data-comkey="{{$k}}">
           <image src="../../static/images/icon_ld_2.png" mode="widthFix" class="_image data-v-20d5dac0"></image>
           <view class="_view data-v-20d5dac0 txt"> 保存电话 </view>
           <view class="_view data-v-20d5dac0 nub"> {{listdata.save_to_address_book}} </view>
@@ -64,13 +64,13 @@
           <view class="_view data-v-20d5dac0 txt"> 觉得靠谱 </view>
           <view class="_view data-v-20d5dac0 nub"> 0 </view>
         </view>
-        <view class="_view data-v-20d5dac0 li" bindtap="handleProxy" data-eventid="{{'8'}}" data-comkey="{{$k}}">
+        <view class="_view data-v-20d5dac0 li" bindtap="handleProxy" data-eventid="{{'HkK-8'}}" data-comkey="{{$k}}">
           <image src="../../static/images/icon_ld_4.png" mode="widthFix" class="_image data-v-20d5dac0"></image>
           <view class="_view data-v-20d5dac0 txt"> 咨询电话 </view>
           <view class="_view data-v-20d5dac0 nub"> {{listdata.dial}} </view>
         </view>
       </view>
     </view>
-    <template data="{{...$root[$kk+'2'], $root}}" is="124de946"></template>
+    <template data="{{...$root['0'], ...$root[$kk+'rl6-2'],$root}}" is="124de946"></template>
   </view>
 </template>

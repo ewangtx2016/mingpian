@@ -8,13 +8,23 @@
 			<view :class="item.radarStatus == 1 ? 'li' : 'li active'" @tap="goto(`${item.id}`, item.radarStatus)">
 				<view class="li_left">
 					<view class="title txtover">{{item.companyName}}</view>
-					<view class="name txtover">
+					
+					<view class="name txtover" v-if="item.userid != ownuserid">
 						{{item.cardName}}
 					</view>
-					<view class="tag txtover">
-						{{item.title}}
+					<view class="name nametag txtover" v-else>
+						{{item.cardName}}
 					</view>
-					<view class="message">
+					
+					<view class="tag txtover"  v-if="item.userid != ownuserid">
+						<!-- {{item.title}} -->
+					</view>
+					<view class="tag txtover"  v-else>
+						代理销售
+					</view>
+					
+					
+					<view class="message_one">
 						<view class="one">
 							{{item.cardTel}}
 						</view>
@@ -27,8 +37,8 @@
 					</view>
 				</view>
 				<!-- 照片 -->
-				<view class="img">
-					<image  :src="item.cardBgImg" mode="aspectFit"></image>
+				<view class="img" v-if="item.userid != ownuserid">
+					<image  :src="item.avatar" mode="aspectFill"></image>
 				</view>
 				<!-- 操作 -->
 				<view class="but">
@@ -58,7 +68,8 @@
 	export default {
 		data(){
 			return {
-				listdata: []
+				listdata: [],
+				ownuserid: ''
 			}
 		},
 		computed: {
@@ -74,7 +85,9 @@
 			'txtmessage': txtmessage
 		},
 		onLoad(query){
-			this.getList()
+			this.getOwnUserId().then(()=>{
+				this.getList()
+			})
 		},
 		// 下拉刷新
 		onPullDownRefresh(){
@@ -94,6 +107,15 @@
 			...mapMutations([
 				'FILE_TIME'
 			]),
+			getOwnUserId(){
+				let _this = this
+				let data = wx.getStorageSync('CODE')
+				let ownid = data.userId
+				return new Promise((resolve, reject)=>{
+					_this.ownuserid = ownid
+					resolve()
+				})
+			},
 			zhendong(){
 				wx.vibrateShort()
 			},
@@ -196,7 +218,7 @@
 				 }
 				 
 				 
-				 & .title,& .name,& .tag,& .message{
+				 & .title,& .name,& .tag,& .message_one{
 					 color: rgba(0,0,0,0.3)!important;
 				 }
 			 }
@@ -218,6 +240,11 @@
 				 color: #555555;
 				 font-size: 55px;
 				 margin-bottom: 18px;
+				 
+				 &.nametag{
+					 font-size: 40px;
+					 font-weight: bold;
+				 }
 			 }
 			 
 			 .tag{
@@ -226,7 +253,7 @@
 				 margin-bottom: 40px;
 			 }
 			 
-			 .message{
+			 .message_one{
 				 color: #878789;
 				 
 				 .one{
@@ -257,6 +284,7 @@
 					width: 100%;
 					height: 100%;
 					border-radius: 10px;
+					background: #EDEDED;
 				}
 			 }
 			 

@@ -1,0 +1,47 @@
+<template name="06493ade">
+  <view class="_view data-v-3c8a12d4 daili">
+    <view class="_view data-v-3c8a12d4 share">
+      <view class="_view data-v-3c8a12d4 txt">
+        <view class="_view data-v-3c8a12d4 p"> {{HTTP_DAILI}} </view>
+        <view class="_view data-v-3c8a12d4 p"> (分享链接给需要开通代理的好友） </view>
+      </view>
+      <button class="_button data-v-3c8a12d4 fx ubtn" open-type="share">分享名片</button>
+    </view>
+    <view class="_view data-v-3c8a12d4 from">
+      <view class="_view data-v-3c8a12d4 p1">
+        <view class="_view data-v-3c8a12d4 span">*</view>
+        <view class="_view data-v-3c8a12d4 txt"> OpenID </view>
+        <view class="_view data-v-3c8a12d4 input">
+          <input type="text" value="" bindinput="handleProxy" data-eventid="{{'yCe-0'}}" data-comkey="{{$k}}" class="_input data-v-3c8a12d4" />
+        </view>
+      </view>
+      <view class="_view data-v-3c8a12d4 p1">
+        <view class="_view data-v-3c8a12d4 span">*</view>
+        <view class="_view data-v-3c8a12d4 txt"> 姓名 </view>
+        <view class="_view data-v-3c8a12d4 input">
+          <input type="text" value="" bindinput="handleProxy" data-eventid="{{'c8a-1'}}" data-comkey="{{$k}}" class="_input data-v-3c8a12d4" />
+        </view>
+      </view>
+      <view class="_view data-v-3c8a12d4 p1">
+        <view class="_view data-v-3c8a12d4 span">*</view>
+        <view class="_view data-v-3c8a12d4 txt"> 绑定微信手机号 </view>
+        <view class="_view data-v-3c8a12d4 input">
+          <input type="text" value="" bindinput="handleProxy" data-eventid="{{'npw-2'}}" data-comkey="{{$k}}" class="_input data-v-3c8a12d4" />
+        </view>
+      </view>
+      <view class="_view data-v-3c8a12d4 p2">
+        <text class="_text data-v-3c8a12d4"> 此号将作开通的代理名片身份和统计分销佣金的账号，绑定后不可修改请准确填写 </text>
+      </view>
+      <view class="_view data-v-3c8a12d4 p1">
+        <view class="_view data-v-3c8a12d4 span">*</view>
+        <view class="_view data-v-3c8a12d4 txt"> 名片展示手机号 </view>
+        <view class="_view data-v-3c8a12d4 input">
+          <input type="text" value="" bindinput="handleProxy" data-eventid="{{'BlF-3'}}" data-comkey="{{$k}}" class="_input data-v-3c8a12d4" />
+        </view>
+      </view>
+      <view class="_view data-v-3c8a12d4 button">
+        <button class="_button data-v-3c8a12d4 ubtn" bindtap="handleProxy" data-eventid="{{'CEz-4'}}" data-comkey="{{$k}}">保 存</button>
+      </view>
+    </view>
+  </view>
+</template>

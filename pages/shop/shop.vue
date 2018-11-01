@@ -1,5 +1,6 @@
 <template>
-	<view>
+	<view class="web_url">
+		<navigator class="web_link" url="/pages/index/index">返回名片</navigator>
 		<web-view :src="websrc" bindload="xiaoqiang"></web-view>
 	</view>
 </template>
@@ -44,5 +45,18 @@
 </script>
 
 <style lang="less">
-	
+	.web_url{
+		position: relative;
+		
+		.web_link{
+			position: fixed;
+			right: 0;
+			bottom: 50%;
+			z-index: 999;
+			background: rgba(10, 203, 122, 1);
+			padding: 20px 50px;
+			border-radius: 30px 0 0 30px;
+			color: #fff;
+		}
+	}
 </style>

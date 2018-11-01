@@ -2,7 +2,7 @@
 <template name="452e939a">
   <view class="_view data-v-cf0e4060 message">
     <view class="_view data-v-cf0e4060 message_list">
-      <view class="_view data-v-cf0e4060 one" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">
+      <view class="_view data-v-cf0e4060 one" bindtap="handleProxy" data-eventid="{{'SBs-0'}}" data-comkey="{{$k}}">
         <image class="_image data-v-cf0e4060 img" src="../../static/images/touxiang.jpg" mode="aspectFill"></image>
         <view class="_view data-v-cf0e4060 mes">
           <view class="_view data-v-cf0e4060 title">
@@ -33,6 +33,6 @@
         </view>
       </view>
     </view>
-    <template data="{{...$root[$kk+'0'], $root}}" is="124de946"></template>
+    <template data="{{...$root['0'], ...$root[$kk+'tBg-0'],$root}}" is="124de946"></template>
   </view>
 </template>

@@ -1,7 +1,8 @@
 <template>
-	<view class="kefu">
+	<view class="kefu" id="j_page">
 		
 		<block v-for="(item, index) of thisList" :key="index">
+			
 			<view class="time" v-if="nowTime != item.time">
 				<text>
 					{{item.time}}
@@ -23,12 +24,14 @@
 					<image :src="item.imgurl" mode="aspectFill"></image>
 				</view>
 			</view>
+			
+			
 		</block>
 		
 		<!-- 聊天窗口 -->
 		
 		<view class="sub_box">
-			<input type="text"  value="" v-model="inputvalue"  />
+			<input type="text"  value="" v-model="inputvalue" @confirm="subMessage"  />
 			<button type="primary" @tap="subMessage">发送</button>
 		</view>
 		
@@ -36,7 +39,7 @@
 </template>
 
 <script>
-	const { Realtime, TextMessage } = require('../../static/js/realtime.weapp.min.js')
+	const { Realtime, TextMessage, Message, Event } = require('../../static/js/realtime.weapp.min.js')
 	
 	const PUBLIC = require('../../static/js/public.js')
 	
@@ -49,6 +52,9 @@
 				nowTime: PUBLIC.RETURN_NEWTIME_X(new Date().getTime())
 			}
 		},
+		created:function(){
+			this.setSocket()
+		},
 		mounted(){
 			
 		},
@@ -58,15 +64,19 @@
 			this.userinfo = userinfo
 			this.ke_id = `KE_${query.userid}`
 			this.zhu_id = `ZHU_${storage.userId}`
-			this.setSocket()
-			this.addMessage({
-				msg: '首发消息'
-			})
+			this.getHisList()
+			this.getMessage()
 		},
 		methods:{
 			// 发送消息
 			subMessage(){
-				console.log(this.inputvalue)
+				if(this.inputvalue== ''){
+					wx.showToast({
+						title:'内容不能为空',
+						icon: 'none'
+					})
+					return 
+				}
 				this.addMessage({
 					msg: this.inputvalue
 				})
@@ -78,6 +88,44 @@
 						appKey: 'mpo0IaNxiCBd3bgOT7Q5Gxpo',
 					});
 			},
+			//滚动到底部
+			scrollToBottom(){
+				wx.createSelectorQuery().select('#j_page').boundingClientRect(function(rect){
+					console.log('底部的江湖里，', rect, rect.bottom)
+					// 使页面滚动到底部
+					wx.pageScrollTo({
+						scrollTop: (rect.height + 100)
+					})
+				}).exec()
+			},
+			// 获取历史纪录
+			getHisList(){
+				let _this = this
+				wx.showLoading({
+					title: '加载中，请稍等'
+				})
+				_this.realtime.createIMClient(_this.zhu_id).then(function(tom) {
+					return tom.createTemporaryConversation({
+						members: [_this.ke_id],
+					});
+				}).then(function(conversation) {
+						conversation.queryMessages({
+							limit: 10, // limit 取值范围 1~1000，默认 20
+						}).then(function(messages) {
+							// 最新的十条消息，按时间增序排列
+							let newmess = []
+							for(let one of messages){
+								newmess.push(one.content)
+							}
+							_this.thisList = newmess
+							_this.scrollToBottom()
+							
+							wx.hideLoading()
+						})
+				}).catch(console.error);
+
+			},
+			// 发送消息
 			addMessage({msg}){
 				let _this = this
 				_this.realtime.createIMClient(_this.zhu_id).then(function(tom) {
@@ -85,17 +133,27 @@
 						members: [_this.ke_id],
 					});
 				}).then(function(conversation) {
-						return conversation.send(new TextMessage(msg));
+					return conversation.send(new Message({
+						mesg: msg,
+						time: PUBLIC.RETURN_NEWTIME_X(new Date().getTime()),
+						imgurl: _this.userinfo.avatarUrl,
+						type: 'zhu'
+					}));
 				}).then((data)=>{
-						console.log('消息发送成功', data)
-						let mess = {
-							mesg: msg,
-							time: PUBLIC.RETURN_NEWTIME_X(new Date().getTime()),
-							type: 'zhu',
-							imgurl: _this.userinfo.avatarUrl
-						}
-						_this.thisList.push(mess)
 						_this.inputvalue = ''
+						_this.nowTime = PUBLIC.RETURN_NEWTIME_X(new Date().getTime())
+						_this.thisList.push(data.content)
+						_this.scrollToBottom()
+				}).catch(console.error);
+			},
+			// 接受消息
+			getMessage(){
+				let _this = this
+				console.log('现代人的时代是生贵', _this.zhu_id)
+				_this.realtime.createIMClient(_this.zhu_id).then(function(tom) {
+				  tom.on(Event.MESSAGE, function(message, conversation) {
+					console.log('Message received: ' + message.text);
+				  });
 				}).catch(console.error);
 			}
 		}

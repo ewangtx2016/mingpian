@@ -1,1 +1,15 @@
 @import "../../common/vendor.wxss";
+
+.web_url {
+  position: relative;
+}
+.web_url .web_link {
+  position: fixed;
+  right: 0;
+  bottom: 50%;
+  z-index: 999;
+  background: #0acb7a;
+  padding: 20rpx 50rpx;
+  border-radius: 30rpx 0 0 30rpx;
+  color: #fff;
+}

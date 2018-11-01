@@ -7,8 +7,21 @@
         <image src="../../static/images/ming_icon.png" mode="aspectFit" class="_image data-v-217f3ac0"></image>
       </navigator>
     </view>
-    <view class="_view data-v-217f3ac0 top">
-      <image src="{{mes.cardBgImg}}" mode="aspectFit" class="_image data-v-217f3ac0"></image>
+    <view class="_view data-v-217f3ac0 daili_top" wx:if="{{mes.userid == stoUserId}}">
+      <view class="_view data-v-217f3ac0 li">
+        <view class="_view data-v-217f3ac0 li_left">
+          <view class="_view data-v-217f3ac0 title txtover">{{mes.companyName}}</view>
+          <view class="_view data-v-217f3ac0 name nametag txtover"> {{mes.cardName}} </view>
+          <view class="_view data-v-217f3ac0 tag txtover"> 代理销售 </view>
+          <view class="_view data-v-217f3ac0 message_one">
+            <view class="_view data-v-217f3ac0 one"> {{mes.cardTel}} </view>
+            <view class="_view data-v-217f3ac0 one" wx:if="{{mes.companyAddr}}"> {{mes.companyAddr}} </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="_view data-v-217f3ac0 top" wx:else>
+      <image src="{{mes.avatar}}" mode="aspectFill" class="_image data-v-217f3ac0"></image>
       <view class="_view data-v-217f3ac0 mes">
         <view class="_view data-v-217f3ac0 logo_box">
           <image class="_image data-v-217f3ac0 logo" src="../../static/images/logo.png" mode="aspectFit"></image>
@@ -17,15 +30,16 @@
           <view class="_view data-v-217f3ac0 name">
             <text class="_text data-v-217f3ac0 txtover">{{mes.cardName}}</text>— {{mes.title}} </view>
           <view class="_view data-v-217f3ac0 tel"> {{mes.cardTel}} </view>
+          <navigator wx:if="{{mes.userid == stoUserId}}" url="/pages/daili/daili" class="_navigator data-v-217f3ac0 btn_daili"> 开通代理名片 </navigator>
         </view>
       </view>
     </view>
     <view class="_view data-v-217f3ac0 mesage">
       <view class="_view data-v-217f3ac0 link">
-        <view bindtap="handleProxy" hidden="{{!(isdown)}}" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_view data-v-217f3ac0"> 展开全部名片信息
+        <view bindtap="handleProxy" hidden="{{!(isdown)}}" data-eventid="{{'5VJ-0'}}" data-comkey="{{$k}}" class="_view data-v-217f3ac0"> 展开全部名片信息
           <image src="../../static/images/jt_down.png" mode="aspectFit" class="_image data-v-217f3ac0"></image>
         </view>
-        <view bindtap="handleProxy" hidden="{{!(!isdown)}}" data-eventid="{{'1'}}" data-comkey="{{$k}}" class="_view data-v-217f3ac0"> 收起全部名片信息
+        <view bindtap="handleProxy" hidden="{{!(!isdown)}}" data-eventid="{{'YPS-1'}}" data-comkey="{{$k}}" class="_view data-v-217f3ac0"> 收起全部名片信息
           <image src="../../static/images/jt_up.png" mode="aspectFit" class="_image data-v-217f3ac0"></image>
         </view>
       </view>
@@ -34,42 +48,42 @@
           <text class="_text data-v-217f3ac0">电话</text>
           <view class="_view data-v-217f3ac0 txt">{{mes.cardTel}}</view>
           <view class="_view data-v-217f3ac0 but">
-            <button type="primary" size="mini" bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}" class="_button data-v-217f3ac0">拨打</button>
+            <button type="primary" size="mini" bindtap="handleProxy" data-eventid="{{'ZSV-2'}}" data-comkey="{{$k}}" class="_button data-v-217f3ac0">拨打</button>
           </view>
         </view>
         <view class="_view data-v-217f3ac0 li" wx:if="{{mes.cardTel}}">
           <text class="_text data-v-217f3ac0">座机</text>
           <view class="_view data-v-217f3ac0 txt">{{mes.cardTel}}</view>
           <view class="_view data-v-217f3ac0 but">
-            <button type="primary" size="mini" bindtap="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}" class="_button data-v-217f3ac0">拨打</button>
+            <button type="primary" size="mini" bindtap="handleProxy" data-eventid="{{'6lk-3'}}" data-comkey="{{$k}}" class="_button data-v-217f3ac0">拨打</button>
           </view>
         </view>
         <view class="_view data-v-217f3ac0 li" wx:if="{{mes.cardWeixinid}}">
           <text class="_text data-v-217f3ac0">微信</text>
           <view class="_view data-v-217f3ac0 txt">{{mes.cardWeixinid}}</view>
           <view class="_view data-v-217f3ac0 but">
-            <button type="primary" size="mini" bindtap="handleProxy" data-eventid="{{'4'}}" data-comkey="{{$k}}" class="_button data-v-217f3ac0">复制</button>
+            <button type="primary" size="mini" bindtap="handleProxy" data-eventid="{{'3Iw-4'}}" data-comkey="{{$k}}" class="_button data-v-217f3ac0">复制</button>
           </view>
         </view>
         <view class="_view data-v-217f3ac0 li" wx:if="{{mes.cardEmail}}">
           <text class="_text data-v-217f3ac0">邮箱</text>
           <view class="_view data-v-217f3ac0 txt">{{mes.cardEmail}}</view>
           <view class="_view data-v-217f3ac0 but">
-            <button type="primary" size="mini" bindtap="handleProxy" data-eventid="{{'5'}}" data-comkey="{{$k}}" class="_button data-v-217f3ac0">复制</button>
+            <button type="primary" size="mini" bindtap="handleProxy" data-eventid="{{'apa-5'}}" data-comkey="{{$k}}" class="_button data-v-217f3ac0">复制</button>
           </view>
         </view>
         <view class="_view data-v-217f3ac0 li" wx:if="{{mes.companyName}}">
           <text class="_text data-v-217f3ac0">公司</text>
           <view class="_view data-v-217f3ac0 txt">{{mes.companyName}}</view>
           <view class="_view data-v-217f3ac0 but">
-            <button type="primary" size="mini" bindtap="handleProxy" data-eventid="{{'6'}}" data-comkey="{{$k}}" class="_button data-v-217f3ac0">复制</button>
+            <button type="primary" size="mini" bindtap="handleProxy" data-eventid="{{'QQc-6'}}" data-comkey="{{$k}}" class="_button data-v-217f3ac0">复制</button>
           </view>
         </view>
         <view class="_view data-v-217f3ac0 li" wx:if="{{mes.companyAddr}}">
           <text class="_text data-v-217f3ac0">地址</text>
           <view class="_view data-v-217f3ac0 txt">{{mes.companyAddr}}</view>
           <view class="_view data-v-217f3ac0 but">
-            <button type="primary" size="mini" bindtap="handleProxy" data-eventid="{{'7'}}" data-comkey="{{$k}}" class="_button data-v-217f3ac0">复制</button>
+            <button type="primary" size="mini" bindtap="handleProxy" data-eventid="{{'Eo3-7'}}" data-comkey="{{$k}}" class="_button data-v-217f3ac0">复制</button>
           </view>
         </view>
       </view>
@@ -77,7 +91,7 @@
     <view class="_view data-v-217f3ac0 fenxiang">
       <view class="_view data-v-217f3ac0 but">
         <button class="_button data-v-217f3ac0 fx" open-type="share" type="primary">分享名片</button>
-        <button class="_button data-v-217f3ac0 txl" type="default" bindtap="handleProxy" data-eventid="{{'8'}}" data-comkey="{{$k}}">存入手机通讯录</button>
+        <button class="_button data-v-217f3ac0 txl" type="default" bindtap="handleProxy" data-eventid="{{'BNs-8'}}" data-comkey="{{$k}}">存入手机通讯录</button>
       </view>
       <view class="_view data-v-217f3ac0 his">
         <view class="_view data-v-217f3ac0 yuan" wx:if="{{mes.latestVisitUser && mes.latestVisitUser.length > 0}}">
@@ -86,7 +100,7 @@
             <text class="_text data-v-217f3ac0">...</text>
           </view>
         </view>
-        <view bindtap="handleProxy" data-eventid="{{'9'}}" data-comkey="{{$k}}" class="_view data-v-217f3ac0 {{iszan ? 'hover zan' : 'zan'}}">
+        <view bindtap="handleProxy" data-eventid="{{'bxv-9'}}" data-comkey="{{$k}}" class="_view data-v-217f3ac0 {{iszan ? 'hover zan' : 'zan'}}">
           <view class="_view data-v-217f3ac0 zan_icon"></view>
           <view class="_view data-v-217f3ac0 txt"> 靠谱
             <text class="_text data-v-217f3ac0">1.1K</text>
@@ -122,11 +136,10 @@
         </view>
       </view>
     </view>
-    <template bindchildByValue="handleProxy" data-eventid="{{'10'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'0'], $root}}" is="64470d36"></template>
-    <template data="{{...$root[$kk+'1'], $root}}" is="5e99e11e"></template>
-    <view class="_view data-v-217f3ac0 icon_kefu">
+    <template bindchildByValue="handleProxy" data-eventid="{{'8kW-10'}}" data-comkey="{{$k}}" data="{{...$root['0'], ...$root[$kk+'c5S-0'],$root}}" is="64470d36"></template>
+    <template data="{{...$root['0'], ...$root[$kk+'YKe-1'],$root}}" is="5e99e11e"></template>
+    <view class="_view data-v-217f3ac0 icon_kefu" bindtap="handleProxy" data-eventid="{{'79g-11'}}" data-comkey="{{$k}}">
       <image src="../../static/images/liuyan.png" mode="scaleToFill" class="_image data-v-217f3ac0"></image>
-      <button type="default" open-type="contact" class="_button data-v-217f3ac0"></button>
     </view>
   </view>
 </template>

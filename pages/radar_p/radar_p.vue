@@ -144,8 +144,15 @@
 		methods:{
 			// 点击获取单条数据
 			toggle(item){
+				let _this = this
+				for(let ite of _this.listdata){
+					if(ite!=item){
+						ite.bool = false
+					}
+				}
+				
 				item.bool = !item.bool
-				this.getOneMessage(item)
+				_this.getOneMessage(item)
 			},
 			// 显示日历
 			showDate(){

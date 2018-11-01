@@ -3,19 +3,21 @@
   <view class="_view data-v-6939f4a6 ming_list">
     <block wx:key="index" key="{{index}}" wx:for="{{listdata}}" wx:for-index="index" wx:for-item="item">
       <view class="_view data-v-6939f4a6 msag">{{item.createTime}}</view>
-      <view bindtap="handleProxy" data-eventid="{{'0-'+index}}" data-comkey="{{$k}}" class="_view data-v-6939f4a6 {{item.radarStatus == 1 ? 'li' : 'li active'}}">
+      <view bindtap="handleProxy" data-eventid="{{'XXG-0-'+index}}" data-comkey="{{$k}}" class="_view data-v-6939f4a6 {{item.radarStatus == 1 ? 'li' : 'li active'}}">
         <view class="_view data-v-6939f4a6 li_left">
           <view class="_view data-v-6939f4a6 title txtover">{{item.companyName}}</view>
-          <view class="_view data-v-6939f4a6 name txtover"> {{item.cardName}} </view>
-          <view class="_view data-v-6939f4a6 tag txtover"> {{item.title}} </view>
-          <view class="_view data-v-6939f4a6 message">
+          <view class="_view data-v-6939f4a6 name txtover" wx:if="{{item.userid != ownuserid}}"> {{item.cardName}} </view>
+          <view class="_view data-v-6939f4a6 name nametag txtover" wx:else> {{item.cardName}} </view>
+          <view class="_view data-v-6939f4a6 tag txtover" wx:if="{{item.userid != ownuserid}}"></view>
+          <view class="_view data-v-6939f4a6 tag txtover" wx:else> 代理销售 </view>
+          <view class="_view data-v-6939f4a6 message_one">
             <view class="_view data-v-6939f4a6 one"> {{item.cardTel}} </view>
             <view class="_view data-v-6939f4a6 one" wx:if="{{item.cardEmail}}"> {{item.cardEmail}} </view>
           </view>
           <view class="_view data-v-6939f4a6 nub"> No.{{index + 1}} </view>
         </view>
-        <view class="_view data-v-6939f4a6 img">
-          <image src="{{item.cardBgImg}}" mode="aspectFit" class="_image data-v-6939f4a6"></image>
+        <view class="_view data-v-6939f4a6 img" wx:if="{{item.userid != ownuserid}}">
+          <image src="{{item.avatar}}" mode="aspectFill" class="_image data-v-6939f4a6"></image>
         </view>
         <view class="_view data-v-6939f4a6 but">
           <button type="default" size="mini" class="_button data-v-6939f4a6">置顶</button>
@@ -24,6 +26,6 @@
       </view>
     </block>
     <navigator class="_navigator data-v-6939f4a6 icon_leida" url="/pages/radar/radar">雷达</navigator>
-    <template data="{{...$root[$kk+'0'], $root}}" is="5e99e11e"></template>
+    <template data="{{...$root['0'], ...$root[$kk+'AEk-0'],$root}}" is="5e99e11e"></template>
   </view>
 </template>

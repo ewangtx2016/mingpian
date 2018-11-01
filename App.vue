@@ -1,6 +1,6 @@
 <script>
-// 	const AV = require('./static/js/av-weapp-min.js')
-// 	const { Realtime, TextMessage } = require('./static/js/realtime.weapp.min.js')
+    // 	const AV = require('./static/js/av-weapp-min.js')
+	// const { Realtime } = require('./static/js/realtime.weapp.min.js')
 	
 	import { mapState, mapGetters, mapMutations } from 'vuex'
 	const PUBLIC = require('./static/js/public.js')
@@ -28,6 +28,7 @@
 			initSocket(){
 				
 			},
+
 			getsetting(){
 					let _this = this
 					// 可以通过 wx.getSetting 先查询一下用户是否授权了 "scope.record" 这个 scope
@@ -44,9 +45,9 @@
 			}
 		},
 		onLaunch: function (Event) {
-
 		},
 		onShow: function (Event) {
+			console.log('计算成本.............')
 			this.getsetting()
 		},
 		onHide: function () {
